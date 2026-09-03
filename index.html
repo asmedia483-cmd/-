@@ -1,894 +1,6454 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بيتنا | أثاث بلمسة صناعية أصيلة</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>أنا السودان | وكالة سفر</title>
+
+<meta name="description"
+      content="أنا السودان وكالة سفر وسياحة متخصصة في تذاكر الطيران والبواخر وحجز الفنادق والعمرة والموافقات الأمنية إلى مصر.">
+
 <style>
-/* ============ Tokens — بيج فاتح + خشب غامق + إضاءة دافئة ============ */
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root{
-  --bg:#F3E9D8;
-  --bg-panel:#E9D8B8;
-  --card:#FBF5E8;
-  --wood-900:#2A1B10;
-  --wood-700:#4A2F1C;
-  --wood-500:#8A5A32;
-  --line:#D9C6A0;
-  --text-primary:#2A1B10;
-  --text-muted:#6E5B44;
-  --light-warm:#FFD9A0;
-  --light-warm-strong:#FFE9C2;
-  --light-glow: rgba(255,196,110,.55);
-  --light-glow-soft: rgba(255,196,110,.22);
-  --shadow-deep: 0 30px 60px -30px rgba(42,27,16,.35);
-  --shadow-soft: 0 14px 30px -18px rgba(42,27,16,.3);
-  --shadow-warm: 0 18px 40px -16px rgba(214,142,58,.45);
-  --font-display:'Aref Ruqaa', serif;
-  --font-body:'Cairo', sans-serif;
+
+    --blue:#124aa0;
+    --blue2:#1767c7;
+    --blue3:#2da9df;
+
+    --orange:#ff8a00;
+    --orange2:#ff6500;
+
+    --white:#ffffff;
+
+    --dark:#07182d;
+    --dark2:#0d2945;
+
+    --text:#26384b;
+    --muted:#718096;
+
+    --light:#f4f9fd;
+
+    --border:rgba(18,74,160,.10);
+
+    --shadow:
+        0 25px 70px rgba(7,24,45,.13);
+
+    --shadow2:
+        0 15px 40px rgba(7,24,45,.10);
+
+    --radius:28px;
+
+    --transition:.35s cubic-bezier(.2,.8,.2,1);
 }
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-  margin:0;background:var(--bg);color:var(--text-primary);
-  font-family:var(--font-body);line-height:1.7;-webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;display:block;}
-a{color:inherit;text-decoration:none;}
-ul{list-style:none;margin:0;padding:0;}
-button{font-family:inherit;cursor:pointer;}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
-@media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important;} }
 
-/* ============ Header ============ */
-.site-header{ position:sticky;top:0;z-index:40; background:rgba(243,233,216,.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
-.header-row{display:flex;align-items:center;justify-content:space-between;height:74px;}
-.brand{display:flex;align-items:center;gap:10px;}
-.brand-mark{
-  width:34px;height:34px;border-radius:50%;
-  background:linear-gradient(155deg,var(--wood-500),var(--wood-900));
-  color:var(--bg);font-family:var(--font-display);font-weight:700;font-size:20px;
-  display:flex;align-items:center;justify-content:center;
-}
-.brand-name{font-family:var(--font-display);font-size:22px;letter-spacing:.5px;color:var(--wood-900);}
-.main-nav{display:flex;gap:32px;}
-.main-nav a{font-size:15px;color:var(--text-muted);transition:color .2s;}
-.main-nav a:hover{color:var(--wood-700);}
-.header-actions{display:flex;align-items:center;gap:14px;}
-.cart-btn{
-  position:relative;background:none;border:1px solid var(--line);color:var(--wood-900);
-  width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  transition:border-color .2s, box-shadow .3s;
-}
-.cart-btn:hover{border-color:var(--wood-500);}
-.cart-btn.pulse{ animation:cartPulse .5s ease; }
-@keyframes cartPulse{
-  0%{ box-shadow:0 0 0 0 var(--light-glow); }
-  60%{ box-shadow:0 0 0 12px rgba(255,196,110,0); }
-  100%{ box-shadow:0 0 0 0 rgba(255,196,110,0); }
-}
-.cart-count{
-  position:absolute;top:-4px;right:-4px;background:var(--wood-700);color:var(--bg);
-  font-size:11px;font-weight:700;width:18px;height:18px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-}
-.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;}
-.nav-toggle span{width:22px;height:2px;background:var(--wood-900);display:block;}
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
 
-/* ============ Buttons ============ */
+    background:#fff;
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    line-height:1.7;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff,
+            #edf7fd
+        );
+
+    z-index:99999;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+.loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+}
+
+.loader-inner{
+
+    text-align:center;
+}
+
+.loader-logo{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:contain;
+
+    animation:
+        loaderPulse 1.5s infinite;
+
+    filter:
+        drop-shadow(
+            0 15px 25px
+            rgba(18,74,160,.2)
+        );
+}
+
+.loader-line{
+
+    width:150px;
+
+    height:4px;
+
+    background:#e8eef5;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin:15px auto;
+}
+
+.loader-line::before{
+
+    content:"";
+
+    display:block;
+
+    width:45%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--blue3)
+        );
+
+    animation:
+        loaderLine 1s infinite;
+}
+
+.loader-text{
+
+    font-size:14px;
+
+    font-weight:800;
+
+    color:var(--blue);
+}
+
+@keyframes loaderPulse{
+
+    0%,100%{
+        transform:scale(.95);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+}
+
+@keyframes loaderLine{
+
+    from{
+        transform:translateX(250%);
+    }
+
+    to{
+        transform:translateX(-250%);
+    }
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container{
+
+    width:min(
+        1180px,
+        calc(100% - 40px)
+    );
+
+    margin:auto;
+}
+
+section{
+
+    padding:110px 0;
+
+    position:relative;
+}
+
+.section-head{
+
+    max-width:720px;
+
+    text-align:center;
+
+    margin:0 auto 60px;
+}
+
+.section-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:
+        rgba(255,138,0,.10);
+
+    color:var(--orange2);
+
+    padding:7px 15px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+.section-tag::before{
+
+    content:"";
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+}
+
+.section-head h2{
+
+    font-size:
+        clamp(32px,4vw,50px);
+
+    color:var(--dark);
+
+    line-height:1.2;
+
+    font-weight:950;
+
+    margin-bottom:15px;
+}
+
+.section-head p{
+
+    color:var(--muted);
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    position:fixed;
+
+    top:0;
+    right:0;
+    left:0;
+
+    height:82px;
+
+    z-index:5000;
+
+    background:
+        rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(18,74,160,.08);
+
+    transition:var(--transition);
+}
+
+.header.scrolled{
+
+    height:70px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(7,24,45,.10);
+}
+
+.nav{
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+
+/* LOGO */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-width:220px;
+}
+
+.logo img{
+
+    width:65px;
+
+    height:65px;
+
+    object-fit:contain;
+
+    transition:var(--transition);
+
+    filter:
+        drop-shadow(
+            0 8px 15px
+            rgba(18,74,160,.12)
+        );
+}
+
+.header.scrolled .logo img{
+
+    width:52px;
+
+    height:52px;
+}
+
+.logo-title{
+
+    font-size:18px;
+
+    font-weight:950;
+
+    color:var(--blue);
+
+    line-height:1.1;
+}
+
+.logo-sub{
+
+    font-size:10px;
+
+    color:var(--orange);
+
+    font-weight:800;
+}
+
+
+/* NAV */
+
+.nav-links{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:27px;
+}
+
+.nav-links a{
+
+    font-size:13px;
+
+    font-weight:800;
+
+    color:var(--dark);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    padding:8px 0;
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    right:0;
+
+    width:0;
+
+    height:3px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--blue3)
+        );
+
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+
+    color:var(--blue);
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+}
+
+
+/* HEADER BUTTON */
+
+.header-btn{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange2)
+        );
+
+    color:#fff;
+
+    border:0;
+
+    padding:12px 19px;
+
+    border-radius:14px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,138,0,.25);
+
+    transition:var(--transition);
+}
+
+.header-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 16px 35px
+        rgba(255,138,0,.32);
+}
+
+.menu-btn{
+
+    display:none;
+
+    width:44px;
+
+    height:44px;
+
+    border:0;
+
+    border-radius:13px;
+
+    background:var(--light);
+
+    color:var(--blue);
+
+    font-size:23px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:850px;
+
+    padding-top:82px;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(45,169,223,.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(255,138,0,.12),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #edf8fd
+        );
+}
+
+
+/* 3D DECORATION */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
+
+    border-radius:50%;
+
+    left:-300px;
+
+    top:120px;
+
+    border:
+        1px solid
+        rgba(45,169,223,.15);
+
+    box-shadow:
+        inset
+        0 0 100px
+        rgba(45,169,223,.05);
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    right:-180px;
+
+    bottom:-150px;
+
+    background:
+        rgba(255,138,0,.08);
+
+    filter:blur(2px);
+}
+
+.hero-grid{
+
+    min-height:768px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* HERO TEXT */
+
+.hero-content{
+
+    animation:
+        heroText .9s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+}
+
+@keyframes heroText{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateX(50px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+.hero-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    background:#fff;
+
+    border:
+        1px solid
+        var(--border);
+
+    box-shadow:
+        0 10px 35px
+        rgba(7,24,45,.07);
+
+    padding:9px 15px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    color:var(--blue);
+
+    margin-bottom:22px;
+}
+
+.hero-tag span{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+        0 0 0 5px
+        rgba(255,138,0,.12);
+}
+
+.hero h1{
+
+    font-size:
+        clamp(43px,5vw,70px);
+
+    color:var(--dark);
+
+    font-weight:950;
+
+    line-height:1.1;
+
+    letter-spacing:-2px;
+
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+
+    color:var(--orange);
+
+    display:inline-block;
+
+    position:relative;
+}
+
+.hero h1 span::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-5px;
+
+    right:0;
+
+    width:70%;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:
+        rgba(45,169,223,.25);
+
+    transform:
+        rotate(-2deg);
+}
+
+.hero-description{
+
+    max-width:580px;
+
+    color:var(--muted);
+
+    font-size:16px;
+
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:14px 26px;border-radius:2px;font-size:15px;font-weight:600;
-  border:1px solid transparent;transition:transform .2s ease, background .2s, border-color .2s, box-shadow .2s;
-}
-.btn:active{transform:translateY(1px);}
-.btn-primary{background:var(--wood-700);color:var(--bg);}
-.btn-primary:hover{background:var(--wood-900); box-shadow:var(--shadow-warm);}
-.btn-ghost{background:transparent;border-color:var(--wood-700);color:var(--wood-900);}
-.btn-ghost:hover{background:var(--wood-700);color:var(--bg);}
-.btn[disabled]{opacity:.45;cursor:not-allowed;}
-.btn[disabled]:hover{background:var(--wood-700);box-shadow:none;}
 
-/* ============ Hero ============ */
-.hero{padding:70px 0 30px;overflow:hidden;position:relative;}
-.hero-spotlight{
-  position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(480px 480px at var(--mx,70%) var(--my,10%), var(--light-glow-soft), transparent 65%);
-  opacity:0;transition:opacity .6s ease;
-}
-.hero.lit .hero-spotlight{opacity:1;}
-.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;position:relative;z-index:1;}
-.hero-eyebrow{color:var(--wood-500);font-size:14px;font-weight:600;margin:0 0 14px;}
-.hero-title{font-family:var(--font-display);font-size:clamp(40px,5vw,64px);line-height:1.15;margin:0 0 22px;font-weight:700;color:var(--wood-900);}
-.hero-desc{color:var(--text-muted);font-size:17px;max-width:46ch;margin:0 0 30px;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+    border:0;
 
-/* pendant lamp — one orchestrated load moment */
-.lamp-scene{ position:relative; height:64px; margin-bottom:6px; }
-.lamp{
-  position:absolute; top:0; left:50%; transform-origin:top center;
-  animation:lampDrop 1.1s cubic-bezier(.2,.9,.3,1.1) forwards;
-}
-.lamp-cord{ width:2px; height:0; background:var(--wood-700); margin:0 auto; animation:cordGrow 1.1s ease forwards; }
-.lamp-shade{
-  width:46px;height:26px;margin:0 auto;border-radius:4px 4px 40px 40px;
-  background:linear-gradient(180deg,var(--wood-700),var(--wood-900));
-  position:relative; opacity:0; animation:shadeReveal .01s linear .9s forwards;
-}
-.lamp-bulb-glow{
-  position:absolute; top:22px; left:50%; transform:translateX(-50%);
-  width:14px;height:14px;border-radius:50%;
-  background:var(--light-warm-strong);
-  opacity:0; box-shadow:0 0 0 rgba(255,196,110,0);
-  animation:glowOn 1.4s ease 1s forwards;
-}
-.lamp-light-pool{
-  position:absolute; top:34px; left:50%; transform:translateX(-50%);
-  width:260px;height:220px;border-radius:50%;
-  background:radial-gradient(circle, var(--light-glow) 0%, var(--light-glow-soft) 40%, transparent 70%);
-  opacity:0; filter:blur(2px);
-  animation:poolBloom 1.6s ease 1.1s forwards;
-  pointer-events:none;
-}
-@keyframes lampDrop{
-  0%{ transform:translateX(-50%) translateY(-40px) rotate(-6deg); }
-  55%{ transform:translateX(-50%) translateY(0) rotate(4deg); }
-  75%{ transform:translateX(-50%) translateY(0) rotate(-2deg); }
-  100%{ transform:translateX(-50%) translateY(0) rotate(0deg); }
-}
-@keyframes cordGrow{ from{height:0;} to{height:38px;} }
-@keyframes shadeReveal{ to{opacity:1;} }
-@keyframes glowOn{
-  0%{ opacity:0; box-shadow:0 0 0 rgba(255,196,110,0); }
-  100%{ opacity:1; box-shadow:0 0 26px 10px var(--light-glow); }
-}
-@keyframes poolBloom{
-  0%{ opacity:0; transform:translateX(-50%) scale(.5); }
-  100%{ opacity:1; transform:translateX(-50%) scale(1); }
+    border-radius:15px;
+
+    padding:14px 22px;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    transition:var(--transition);
 }
 
-/* floating clickable furniture gallery */
-.hero-gallery{
-  display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,42px);
-  gap:14px; position:relative; opacity:0; animation:galleryLightUp .01s linear 1.3s forwards;
-}
-@keyframes galleryLightUp{ to{opacity:1;} }
-.float-tile{
-  border:none;padding:0;background:var(--card);border-radius:10px;overflow:hidden;
-  box-shadow:var(--shadow-soft);cursor:pointer;position:relative;
-  animation:floatY var(--dur,6s) ease-in-out var(--delay,0s) infinite, tileFadeIn .6s ease both;
-  animation-delay:var(--delay,0s), calc(1.3s + var(--stagger,0s));
-  transition:box-shadow .25s, transform .2s;
-}
-@keyframes tileFadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-.float-tile:hover{ box-shadow:0 0 0 1px var(--light-glow), var(--shadow-warm); transform:translateY(-2px); }
-.float-tile:hover img{ transform:scale(1.06); }
-.float-tile img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; opacity:0; }
-.float-tile img.loaded{ opacity:1; transition:opacity .4s ease, transform .5s ease; }
-.float-tile .tile-label{
-  position:absolute; inset:auto 0 0 0; padding:10px 12px 8px;
-  background:linear-gradient(0deg, rgba(42,27,16,.75), transparent);
-  color:#F3E9D8; font-size:12.5px; text-align:right; opacity:0; transition:opacity .2s;
-}
-.float-tile:hover .tile-label{ opacity:1; }
+.btn-primary{
 
-.tile-1{grid-column:1/4; grid-row:1/5; --dur:7.5s; --delay:0s; --stagger:.05s;}
-.tile-2{grid-column:4/7; grid-row:1/4; --dur:6.2s; --delay:.6s; --stagger:.1s;}
-.tile-3{grid-column:4/6; grid-row:4/7; --dur:6.8s; --delay:1.2s; --stagger:.15s;}
-.tile-4{grid-column:6/7; grid-row:4/7; --dur:5.6s; --delay:.3s; --stagger:.2s;}
-.tile-5{grid-column:1/3; grid-row:5/7; --dur:7s; --delay:1.5s; --stagger:.25s;}
-.tile-6{grid-column:3/4; grid-row:5/7; --dur:6.4s; --delay:.9s; --stagger:.3s;}
+    color:white;
 
-@keyframes floatY{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-10px); }
-}
-.gallery-hint{text-align:center;color:var(--text-muted);font-size:13px;margin-top:14px;opacity:.85;}
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange2)
+        );
 
-/* ============ Section shared ============ */
-.section-head{max-width:640px;margin:0 0 44px;}
-.section-head h2, .craft-copy h2, .contact h2{font-family:var(--font-display);font-size:clamp(30px,3.4vw,42px);margin:0 0 14px;color:var(--wood-900);}
-.section-head p{color:var(--text-muted);font-size:16px;}
-.section-eyebrow{color:var(--wood-500);font-weight:600;font-size:14px;margin:0 0 10px;}
-.collection{padding:70px 0;border-top:1px solid var(--line);position:relative;}
-
-/* ============ Product grid ============ */
-.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
-.product-card{
-  background:var(--card);border:1px solid var(--line);border-radius:6px;
-  padding:0 0 22px;display:flex;flex-direction:column;overflow:hidden;
-  transition:box-shadow .25s, transform .2s, border-color .25s;
-  opacity:0; transform:translateY(24px);
-  cursor:pointer;
-}
-.product-card.in-view{ animation:cardIn .6s ease forwards; }
-@keyframes cardIn{ to{ opacity:1; transform:translateY(0); } }
-.product-card:hover{ box-shadow:0 0 0 1px var(--light-glow-soft), var(--shadow-warm); transform:translateY(-3px); border-color:transparent; }
-
-.photo-wrap{ position:relative; height:190px; overflow:hidden; background:var(--bg-panel); }
-.photo-wrap img{ width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s ease, transform .5s ease; }
-.photo-wrap img.loaded{ opacity:1; }
-.product-card:hover .photo-wrap img{ transform:scale(1.05); }
-
-.product-body{ padding:20px 22px 0; display:flex; flex-direction:column; flex:1; }
-.product-name{font-size:16.5px;font-weight:700;margin:0 0 4px;color:var(--wood-900);}
-.product-desc{color:var(--text-muted);font-size:13px;margin:0 0 14px;flex:1;}
-.product-foot{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.product-price{font-weight:700;color:var(--wood-700);font-size:14.5px;}
-.add-btn{
-  width:100%;padding:11px;border-radius:2px;border:1px solid var(--wood-700);
-  background:transparent;color:var(--wood-900);font-weight:600;font-size:14px;
-  transition:background .2s, border-color .2s, color .2s, box-shadow .2s;
-}
-.add-btn:hover{background:var(--wood-700);color:var(--bg);}
-.add-btn.added{background:var(--wood-900);border-color:var(--wood-900);color:var(--bg); box-shadow:0 0 14px 2px var(--light-glow);}
-
-/* ============ Craft ============ */
-.craft{padding:90px 0;border-top:1px solid var(--line);background:var(--bg-panel);position:relative;overflow:hidden;}
-.craft::before{
-  content:"";position:absolute;top:-120px;right:-80px;width:340px;height:340px;border-radius:50%;
-  background:radial-gradient(circle, var(--light-glow-soft), transparent 70%); pointer-events:none;
-}
-.craft-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;position:relative;z-index:1;}
-.craft-photo{ border-radius:6px; overflow:hidden; box-shadow:var(--shadow-deep); background:var(--card); }
-.craft-photo img{ width:100%; height:340px; object-fit:cover; opacity:0; transition:opacity .35s ease; }
-.craft-photo img.loaded{ opacity:1; }
-.craft-list{margin-top:24px;display:flex;flex-direction:column;gap:14px;}
-.craft-list li{display:flex;gap:14px;align-items:baseline;color:var(--text-muted);font-size:15px;}
-.craft-list li span{font-family:var(--font-display);color:var(--wood-500);font-size:20px;min-width:28px;}
-.craft-copy p{color:var(--text-muted);max-width:52ch;}
-
-/* ============ Contact ============ */
-.contact{padding:90px 0;border-top:1px solid var(--line);}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
-.contact-desc{color:var(--text-muted);max-width:44ch;}
-.contact-lines{margin-top:24px;display:flex;flex-direction:column;gap:10px;color:var(--text-muted);font-size:15px;}
-.contact-form{display:flex;flex-direction:column;gap:16px;}
-.contact-form label{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--text-muted);}
-.contact-form input, .contact-form textarea{
-  background:var(--card);border:1px solid var(--line);border-radius:2px;
-  padding:12px 14px;color:var(--text-primary);font-family:inherit;font-size:15px;resize:vertical;
-}
-.contact-form input:focus, .contact-form textarea:focus{ outline:2px solid var(--wood-500); outline-offset:1px; }
-.form-note{color:var(--wood-700);font-size:14px;min-height:20px;margin:0;}
-
-/* ============ Footer ============ */
-.site-footer{border-top:1px solid var(--line);padding:32px 0;background:var(--bg-panel);}
-.footer-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
-.footer-row p{color:var(--text-muted);font-size:13.5px;margin:0;}
-
-/* ============ WhatsApp FAB ============ */
-.whatsapp-fab{
-  position:fixed;bottom:26px;left:26px;z-index:50;
-  width:56px;height:56px;border-radius:50%;background:#3E7A4F;color:#F3E9D8;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px -8px rgba(42,27,16,.5);
-  transition:transform .2s;
-}
-.whatsapp-fab:hover{transform:scale(1.06);}
-
-/* ============ Product detail modal ============ */
-.modal-overlay{
-  position:fixed;inset:0;z-index:100;background:rgba(42,27,16,.55);
-  display:flex;align-items:center;justify-content:center;padding:20px;
-  opacity:0;pointer-events:none;transition:opacity .2s ease;
-}
-.modal-overlay.open{opacity:1;pointer-events:auto;}
-.modal-card{
-  background:var(--card);border-radius:10px;max-width:760px;width:100%;
-  display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden;
-  box-shadow:var(--shadow-deep);
-  transform:translateY(18px) scale(.98);transition:transform .25s ease;
-  max-height:88vh;
-}
-.modal-overlay.open .modal-card{transform:translateY(0) scale(1);}
-.modal-photo{position:relative;background:var(--bg-panel);}
-.modal-photo img{width:100%;height:100%;object-fit:cover;min-height:260px;}
-.modal-body{padding:30px 28px;display:flex;flex-direction:column;overflow-y:auto;}
-.modal-close{
-  position:absolute;top:14px;left:14px;width:36px;height:36px;border-radius:50%;
-  background:rgba(243,233,216,.92);border:1px solid var(--line);color:var(--wood-900);
-  display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;
-}
-.modal-close:hover{background:var(--wood-700);color:var(--bg);}
-.modal-body h3{font-family:var(--font-display);font-size:26px;margin:0 0 10px;color:var(--wood-900);}
-.modal-body .modal-price{font-size:19px;font-weight:700;color:var(--wood-700);margin:0 0 16px;}
-.modal-body .modal-desc{color:var(--text-muted);font-size:15px;margin:0 0 22px;flex:1;}
-.modal-actions{display:flex;gap:12px;flex-wrap:wrap;}
-
-/* ============ Cart drawer ============ */
-.cart-overlay{
-  position:fixed;inset:0;z-index:110;background:rgba(42,27,16,.5);
-  opacity:0;pointer-events:none;transition:opacity .25s ease;
-}
-.cart-overlay.open{opacity:1;pointer-events:auto;}
-.cart-drawer{
-  position:fixed;top:0;bottom:0;left:0;z-index:111;
-  width:min(420px,92vw);background:var(--bg);
-  box-shadow:24px 0 60px -20px rgba(42,27,16,.5);
-  display:flex;flex-direction:column;
-  transform:translateX(-100%);transition:transform .3s ease;
-}
-.cart-overlay.open .cart-drawer{transform:translateX(0);}
-.cart-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:22px 24px;border-bottom:1px solid var(--line);
-}
-.cart-head h3{font-family:var(--font-display);font-size:22px;margin:0;color:var(--wood-900);}
-.cart-close{
-  width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:none;
-  color:var(--wood-900);display:flex;align-items:center;justify-content:center;font-size:16px;
-}
-.cart-close:hover{background:var(--wood-700);color:var(--bg);border-color:var(--wood-700);}
-.cart-items{flex:1;overflow-y:auto;padding:8px 24px;}
-.cart-empty{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  height:100%;color:var(--text-muted);text-align:center;gap:10px;padding:40px 20px;
-}
-.cart-empty span{font-size:34px;}
-.cart-item{
-  display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;
-  padding:16px 0;border-bottom:1px solid var(--line);
-}
-.cart-item img{width:64px;height:64px;object-fit:cover;border-radius:6px;background:var(--bg-panel);}
-.cart-item-name{font-size:14.5px;font-weight:700;color:var(--wood-900);margin:0 0 4px;}
-.cart-item-price{font-size:13px;color:var(--text-muted);margin:0 0 8px;}
-.cart-item-controls{display:flex;align-items:center;gap:8px;}
-.qty-btn{
-  width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:none;
-  color:var(--wood-900);display:flex;align-items:center;justify-content:center;font-size:14px;
-}
-.qty-btn:hover{border-color:var(--wood-500);}
-.qty-value{min-width:20px;text-align:center;font-size:14px;font-weight:600;}
-.cart-item-remove{
-  justify-self:end;align-self:start;background:none;border:none;color:var(--text-muted);
-  font-size:13px;text-decoration:underline;padding:2px;
-}
-.cart-item-remove:hover{color:var(--wood-700);}
-.cart-item-line-total{font-size:13.5px;font-weight:700;color:var(--wood-700);margin-top:8px;}
-.cart-foot{border-top:1px solid var(--line);padding:20px 24px 24px;}
-.cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;}
-.cart-total-row span:first-child{color:var(--text-muted);font-size:14px;}
-.cart-total-row span:last-child{font-family:var(--font-display);font-size:24px;color:var(--wood-900);}
-.cart-foot .btn{width:100%;}
-
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-  outline:2px solid var(--wood-700);outline-offset:2px;
+    box-shadow:
+        0 15px 35px
+        rgba(255,138,0,.25);
 }
 
-/* ============ Responsive ============ */
-@media (max-width: 980px){
-  .hero-grid, .craft-grid, .contact-grid{grid-template-columns:1fr;}
-  .product-grid{grid-template-columns:repeat(2,1fr);}
-  .hero-gallery{ grid-template-rows:repeat(6,60px); }
-  .modal-card{grid-template-columns:1fr;}
-  .modal-photo img{min-height:200px;}
+.btn-primary:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(255,138,0,.35);
 }
-@media (max-width: 720px){
-  .main-nav{
-    position:fixed;inset:74px 0 0 0;background:var(--bg);
-    flex-direction:column;padding:30px 28px;gap:22px;transform:translateY(-110%);
-    transition:transform .25s ease;border-top:1px solid var(--line);
-  }
-  .main-nav.open{transform:translateY(0);}
-  .nav-toggle{display:flex;}
-  .product-grid{grid-template-columns:1fr;}
-  .hero{padding-top:34px;}
-  .hero-gallery{ grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(6,52px); }
-  .tile-1{grid-column:1/4; grid-row:1/4;}
-  .tile-2{grid-column:1/3; grid-row:4/6;}
-  .tile-3{grid-column:3/5; grid-row:4/6;}
-  .tile-4{grid-column:1/3; grid-row:6/8;}
-  .tile-5{grid-column:3/5; grid-row:6/8;}
-  .tile-6{display:none;}
-  .cart-drawer{width:100vw;}
-  .cart-item{grid-template-columns:52px 1fr auto;}
-  .cart-item img{width:52px;height:52px;}
+
+.btn-outline{
+
+    color:var(--blue);
+
+    background:#fff;
+
+    border:
+        1px solid
+        rgba(18,74,160,.12);
+
+    box-shadow:
+        0 10px 25px
+        rgba(7,24,45,.05);
 }
-@media (max-width: 420px){
-  .wrap{padding:0 18px;}
-  .hero-title{font-size:clamp(32px,9vw,44px);}
-  .cart-item-remove{justify-self:start;margin-top:6px;}
-  .cart-item{grid-template-columns:1fr;}
-  .cart-item img{width:100%;height:140px;}
+
+.btn-outline:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:var(--blue3);
 }
+
+
+/* HERO STATS */
+
+.hero-stats{
+
+    display:flex;
+
+    gap:35px;
+
+    margin-top:40px;
+}
+
+.stat strong{
+
+    display:block;
+
+    color:var(--blue);
+
+    font-size:24px;
+
+    line-height:1;
+}
+
+.stat span{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   3D HERO CARD
+========================================================= */
+
+.hero-scene{
+
+    height:570px;
+
+    perspective:1200px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:
+        heroScene 1s
+        .15s both;
+}
+
+@keyframes heroScene{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateX(-50px)
+            scale(.95);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+.hero-3d-card{
+
+    width:420px;
+
+    min-height:500px;
+
+    border-radius:35px;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    transform:
+        rotateY(-10deg)
+        rotateX(5deg);
+
+    transition:
+        transform .15s ease;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.97),
+            rgba(240,249,253,.94)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+
+        30px 35px 70px
+        rgba(7,24,45,.18),
+
+        inset
+        0 1px 0
+        rgba(255,255,255,.9);
+}
+
+
+/* CARD TOP */
+
+.card-top{
+
+    height:260px;
+
+    border-radius:
+        35px 35px 0 0;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(255,255,255,.25),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue3)
+        );
+}
+
+.card-top::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    border:
+        2px solid
+        rgba(255,255,255,.12);
+
+    left:-70px;
+
+    bottom:-160px;
+}
+
+.card-top::after{
+
+    content:"✈";
+
+    position:absolute;
+
+    font-size:180px;
+
+    left:-15px;
+
+    bottom:-60px;
+
+    color:#fff;
+
+    opacity:.10;
+
+    transform:
+        rotate(-20deg);
+}
+
+.ticket-logo{
+
+    width:115px;
+
+    height:115px;
+
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:5px;
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.13);
+
+    transform:
+        translateZ(35px);
+}
+
+.ticket-title{
+
+    position:absolute;
+
+    right:28px;
+
+    bottom:30px;
+
+    color:#fff;
+
+    transform:
+        translateZ(30px);
+}
+
+.ticket-title small{
+
+    font-size:10px;
+
+    opacity:.8;
+}
+
+.ticket-title h3{
+
+    font-size:27px;
+
+    line-height:1.2;
+}
+
+
+/* ROUTE */
+
+.route{
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    transform:
+        translateZ(25px);
+}
+
+.city{
+
+    flex:1;
+
+    text-align:center;
+}
+
+.city strong{
+
+    display:block;
+
+    font-size:30px;
+
+    color:var(--blue);
+
+    line-height:1;
+}
+
+.city span{
+
+    font-size:10px;
+
+    color:var(--muted);
+}
+
+.route-line{
+
+    width:90px;
+
+    height:2px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            var(--orange) 0 8px,
+            transparent 8px 15px
+        );
+
+    position:relative;
+}
+
+.route-line::after{
+
+    content:"✈";
+
+    position:absolute;
+
+    left:50%;
+
+    top:-15px;
+
+    transform:
+        translateX(-50%);
+
+    color:var(--orange);
+
+    font-size:22px;
+}
+
+
+/* CARD INFO */
+
+.ticket-info{
+
+    margin:0 25px 25px;
+
+    padding:17px;
+
+    background:#fff;
+
+    border-radius:17px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(7,24,45,.07);
+
+    transform:
+        translateZ(25px);
+}
+
+.ticket-info small{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.ticket-info strong{
+
+    font-size:11px;
+
+    color:var(--dark);
+}
+
+
+/* FLOAT CARDS */
+
+.float{
+
+    position:absolute;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    box-shadow:
+        0 20px 45px
+        rgba(7,24,45,.15);
+
+    z-index:20;
+
+    animation:
+        floating 4s ease-in-out
+        infinite;
+}
+
+.float-1{
+
+    top:40px;
+
+    left:5px;
+}
+
+.float-2{
+
+    bottom:40px;
+
+    right:0;
+
+    animation-delay:1s;
+}
+
+.float-icon{
+
+    width:43px;
+
+    height:43px;
+
+    border-radius:13px;
+
+    display:grid;
+
+    place-items:center;
+
+    color:white;
+
+    font-size:20px;
+}
+
+.float-1 .float-icon{
+
+    background:var(--orange);
+}
+
+.float-2 .float-icon{
+
+    background:var(--blue);
+}
+
+.float strong{
+
+    display:block;
+
+    font-size:12px;
+}
+
+.float span{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+@keyframes floating{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-area{
+
+    margin-top:-80px;
+
+    position:relative;
+
+    z-index:50;
+}
+
+.search-box{
+
+    background:#fff;
+
+    padding:10px;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(7,24,45,.16);
+
+    border:
+        1px solid
+        rgba(18,74,160,.08);
+}
+
+.search-tabs{
+
+    display:flex;
+
+    gap:6px;
+
+    background:var(--light);
+
+    padding:6px;
+
+    border-radius:18px;
+}
+
+.search-tab{
+
+    flex:1;
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    padding:12px;
+
+    border-radius:13px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    transition:var(--transition);
+}
+
+.search-tab.active{
+
+    background:#fff;
+
+    color:var(--orange);
+
+    box-shadow:
+        0 7px 20px
+        rgba(7,24,45,.07);
+}
+
+.search-form{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr 1fr auto;
+
+    gap:8px;
+
+    padding-top:9px;
+}
+
+.field{
+
+    background:var(--light);
+
+    border-radius:14px;
+
+    padding:8px 12px;
+}
+
+.field label{
+
+    display:block;
+
+    font-size:9px;
+
+    color:var(--muted);
+
+    font-weight:700;
+}
+
+.field input,
+.field select{
+
+    width:100%;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    color:var(--dark);
+}
+
+.search-btn{
+
+    border:0;
+
+    border-radius:14px;
+
+    padding:0 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange2)
+        );
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+
+    background:#fff;
+}
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:17px;
+}
+
+.service{
+
+    padding:28px 18px;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    border:
+        1px solid
+        var(--border);
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+    transform-style:preserve-3d;
+}
+
+.service::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    right:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--blue3)
+        );
+
+    transform:scaleX(0);
+
+    transition:var(--transition);
+}
+
+.service:hover{
+
+    transform:
+        translateY(-12px)
+        rotateX(3deg);
+
+    box-shadow:var(--shadow);
+}
+
+.service:hover::before{
+
+    transform:scaleX(1);
+}
+
+.service-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:21px;
+
+    margin:0 auto 18px;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:31px;
+
+    background:
+        rgba(45,169,223,.10);
+
+    transform:
+        translateZ(20px);
+
+    transition:var(--transition);
+}
+
+.service:hover .service-icon{
+
+    transform:
+        translateZ(30px)
+        rotateY(10deg)
+        scale(1.08);
+}
+
+.service:nth-child(even)
+.service-icon{
+
+    background:
+        rgba(255,138,0,.10);
+}
+
+.service h3{
+
+    font-size:15px;
+
+    color:var(--dark);
+
+    margin-bottom:7px;
+}
+
+.service p{
+
+    font-size:10px;
+
+    color:var(--muted);
+}
+
+
+/* =========================================================
+   DESTINATIONS
+========================================================= */
+
+.destinations{
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5faff,
+            #edf7fc
+        );
+}
+
+.destination-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.destination{
+
+    height:330px;
+
+    border-radius:27px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--blue),
+            var(--dark2)
+        );
+
+    transition:var(--transition);
+
+    transform-style:preserve-3d;
+
+    box-shadow:
+        0 20px 50px
+        rgba(7,24,45,.12);
+}
+
+.destination:hover{
+
+    transform:
+        translateY(-10px)
+        rotateX(2deg)
+        rotateY(-2deg);
+
+    box-shadow:
+        0 30px 65px
+        rgba(7,24,45,.20);
+}
+
+.destination.orange{
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--orange),
+            #a84600
+        );
+}
+
+.destination-symbol{
+
+    position:absolute;
+
+    top:25px;
+
+    left:25px;
+
+    font-size:100px;
+
+    opacity:.15;
+
+    transform:
+        translateZ(35px);
+}
+
+.destination-content{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    left:0;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.7)
+        );
+
+    transform:
+        translateZ(25px);
+}
+
+.destination-content small{
+
+    font-size:10px;
+
+    opacity:.8;
+}
+
+.destination-content h3{
+
+    font-size:27px;
+
+    line-height:1.2;
+
+    margin:4px 0;
+}
+
+.destination-content span{
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   HOTELS
+========================================================= */
+
+.hotels{
+
+    background:#fff;
+}
+
+.hotel-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.hotel{
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    border:
+        1px solid
+        var(--border);
+
+    transition:var(--transition);
+}
+
+.hotel:hover{
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:var(--shadow);
+}
+
+.hotel-img{
+
+    height:210px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c8edfa,
+            #4fb8dd
+        );
+
+    display:grid;
+
+    place-items:center;
+
+    overflow:hidden;
+}
+
+.hotel-img::before{
+
+    content:"🏨";
+
+    font-size:100px;
+
+    opacity:.7;
+
+    filter:
+        drop-shadow(
+            0 15px 20px
+            rgba(7,24,45,.12)
+        );
+}
+
+.stars{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    background:#fff;
+
+    color:var(--orange);
+
+    padding:5px 10px;
+
+    border-radius:50px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 7px 20px
+        rgba(0,0,0,.08);
+}
+
+.hotel-body{
+
+    padding:21px;
+}
+
+.hotel-body h3{
+
+    font-size:17px;
+
+    color:var(--dark);
+
+    margin-bottom:5px;
+}
+
+.hotel-body p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-bottom:17px;
+}
+
+.hotel-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    padding-top:15px;
+}
+
+.hotel-price{
+
+    color:var(--orange);
+
+    font-weight:900;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   WHY
+========================================================= */
+
+.why{
+
+    background:
+        var(--light);
+}
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+}
+
+.why-scene{
+
+    min-height:500px;
+
+    border-radius:35px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2)
+        );
+
+    box-shadow:
+        0 30px 70px
+        rgba(18,74,160,.22);
+
+    transform-style:preserve-3d;
+}
+
+.why-scene::before{
+
+    content:"✈";
+
+    position:absolute;
+
+    font-size:350px;
+
+    left:-50px;
+
+    bottom:-100px;
+
+    color:#fff;
+
+    opacity:.07;
+
+    transform:rotate(-20deg);
+}
+
+.why-center{
+
+    position:absolute;
+
+    top:50%;
+
+    right:50%;
+
+    transform:
+        translate(50%,-50%)
+        translateZ(60px);
+
+    width:190px;
+
+    height:190px;
+
+    border-radius:35px;
+
+    background:#fff;
+
+    display:grid;
+
+    place-items:center;
+
+    text-align:center;
+
+    box-shadow:
+        0 30px 60px
+        rgba(0,0,0,.18);
+}
+
+.why-center img{
+
+    width:115px;
+
+    height:115px;
+
+    object-fit:contain;
+}
+
+.why-float{
+
+    position:absolute;
+
+    background:#fff;
+
+    color:var(--dark);
+
+    padding:15px;
+
+    border-radius:17px;
+
+    box-shadow:
+        0 20px 40px
+        rgba(0,0,0,.15);
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.why-float.one{
+
+    top:35px;
+
+    right:30px;
+}
+
+.why-float.two{
+
+    bottom:35px;
+
+    left:30px;
+}
+
+.why-content h2{
+
+    color:var(--dark);
+
+    font-size:
+        clamp(31px,4vw,47px);
+
+    line-height:1.2;
+
+    margin-bottom:18px;
+
+    font-weight:950;
+}
+
+.why-content > p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    margin-bottom:27px;
+}
+
+.benefits{
+
+    display:grid;
+
+    gap:16px;
+}
+
+.benefit{
+
+    display:flex;
+
+    gap:12px;
+}
+
+.check{
+
+    flex-shrink:0;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:11px;
+
+    display:grid;
+
+    place-items:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange2)
+        );
+
+    font-weight:900;
+}
+
+.benefit h4{
+
+    font-size:13px;
+
+    color:var(--dark);
+
+    margin-bottom:2px;
+}
+
+.benefit p{
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   SECURITY / EGYPT
+========================================================= */
+
+.security{
+
+    background:#fff;
+}
+
+.security-box{
+
+    border-radius:35px;
+
+    padding:55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--dark),
+            var(--dark2)
+        );
+
+    color:#fff;
+
+    display:grid;
+
+    grid-template-columns:
+        1.1fr .9fr;
+
+    gap:50px;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:
+        0 30px 70px
+        rgba(7,24,45,.18);
+}
+
+.security-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    border-radius:50%;
+
+    left:-180px;
+
+    top:-200px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.security-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.security-content .section-tag{
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:var(--orange);
+}
+
+.security-content h2{
+
+    font-size:
+        clamp(30px,4vw,45px);
+
+    line-height:1.2;
+
+    margin-bottom:15px;
+}
+
+.security-content p{
+
+    color:
+        rgba(255,255,255,.62);
+
+    font-size:13px;
+
+    margin-bottom:25px;
+}
+
+.security-list{
+
+    display:grid;
+
+    gap:9px;
+}
+
+.security-list div{
+
+    padding:11px 14px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.security-card{
+
+    position:relative;
+
+    height:310px;
+
+    display:grid;
+
+    place-items:center;
+
+    perspective:900px;
+}
+
+.passport{
+
+    width:230px;
+
+    height:280px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--orange),
+            #ca5000
+        );
+
+    box-shadow:
+        25px 30px 50px
+        rgba(0,0,0,.3);
+
+    transform:
+        rotateY(-18deg)
+        rotateX(5deg)
+        rotateZ(3deg);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    gap:10px;
+
+    animation:
+        passportFloat 4s
+        ease-in-out
+        infinite;
+}
+
+.passport::before{
+
+    content:"✦";
+
+    font-size:60px;
+
+    opacity:.3;
+}
+
+.passport strong{
+
+    font-size:19px;
+}
+
+.passport span{
+
+    font-size:10px;
+
+    opacity:.75;
+}
+
+@keyframes passportFloat{
+
+    0%,100%{
+        transform:
+            rotateY(-18deg)
+            rotateX(5deg)
+            rotateZ(3deg)
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            rotateY(-12deg)
+            rotateX(2deg)
+            rotateZ(1deg)
+            translateY(-13px);
+    }
+}
+
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.steps{
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5faff,
+            #fff
+        );
+}
+
+.steps-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+
+    position:relative;
+}
+
+.steps-grid::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:35px;
+
+    right:12%;
+
+    left:12%;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--blue3)
+        );
+
+    opacity:.25;
+}
+
+.step{
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.step-number{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    border-radius:22px;
+
+    display:grid;
+
+    place-items:center;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:950;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange2)
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(255,138,0,.25);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    transform:
+        translateZ(30px);
+}
+
+.step:nth-child(even)
+.step-number{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2)
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(18,74,160,.22);
+}
+
+.step:hover
+.step-number{
+
+    transform:
+        translateY(-10px)
+        rotateY(15deg)
+        rotateX(10deg);
+}
+
+.step h3{
+
+    margin-top:20px;
+
+    color:var(--dark);
+
+    font-size:15px;
+}
+
+.step p{
+
+    max-width:190px;
+
+    margin:6px auto 0;
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   UMRAH
+========================================================= */
+
+.umrah{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--dark),
+            #092f50
+        );
+
+    color:white;
+
+    overflow:hidden;
+}
+
+.umrah-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr .85fr;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+.umrah-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.umrah-content h2{
+
+    font-size:
+        clamp(34px,4vw,52px);
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+.umrah-content h2 span{
+
+    color:var(--orange);
+}
+
+.umrah-content > p{
+
+    color:
+        rgba(255,255,255,.62);
+
+    font-size:13px;
+
+    margin-bottom:25px;
+}
+
+.umrah-items{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+}
+
+.umrah-item{
+
+    padding:13px;
+
+    border-radius:13px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    transition:var(--transition);
+}
+
+.umrah-item:hover{
+
+    background:
+        rgba(255,255,255,.10);
+
+    transform:
+        translateY(-3px);
+}
+
+.umrah-card{
+
+    background:#fff;
+
+    color:var(--dark);
+
+    padding:30px;
+
+    border-radius:28px;
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.25);
+}
+
+.umrah-card h3{
+
+    font-size:22px;
+
+    margin-bottom:4px;
+}
+
+.umrah-card p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-bottom:18px;
+}
+
+.form{
+
+    display:grid;
+
+    gap:10px;
+}
+
+.input{
+
+    width:100%;
+
+    border:1px solid transparent;
+
+    outline:0;
+
+    background:var(--light);
+
+    border-radius:12px;
+
+    padding:12px 14px;
+
+    font-size:11px;
+
+    color:var(--dark);
+
+    transition:var(--transition);
+}
+
+.input:focus{
+
+    border-color:
+        var(--blue3);
+
+    background:#fff;
+}
+
+textarea.input{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+.reviews{
+
+    background:var(--light);
+}
+
+.review-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.review{
+
+    background:#fff;
+
+    border-radius:23px;
+
+    padding:24px;
+
+    border:
+        1px solid
+        var(--border);
+
+    transition:var(--transition);
+}
+
+.review:hover{
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:var(--shadow);
+}
+
+.review-stars{
+
+    color:var(--orange);
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+}
+
+.review p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+}
+
+.user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--orange)
+        );
+
+    color:#fff;
+
+    font-weight:900;
+}
+
+.user strong{
+
+    display:block;
+
+    font-size:11px;
+}
+
+.user span{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:25px;
+}
+
+.contact-info{
+
+    border-radius:28px;
+
+    padding:35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--blue),
+            var(--dark2)
+        );
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.contact-info::after{
+
+    content:"✈";
+
+    position:absolute;
+
+    font-size:250px;
+
+    left:-50px;
+
+    bottom:-90px;
+
+    opacity:.05;
+
+    transform:rotate(-20deg);
+}
+
+.contact-info h2{
+
+    font-size:32px;
+
+    margin-bottom:10px;
+}
+
+.contact-info > p{
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size:12px;
+
+    margin-bottom:28px;
+}
+
+.contact-list{
+
+    display:grid;
+
+    gap:14px;
+}
+
+.contact-item{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+}
+
+.contact-icon{
+
+    width:43px;
+
+    height:43px;
+
+    border-radius:13px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+        rgba(255,255,255,.10);
+
+    color:#fff;
+}
+
+.contact-item strong{
+
+    display:block;
+
+    font-size:11px;
+}
+
+.contact-item span{
+
+    color:
+        rgba(255,255,255,.60);
+
+    font-size:10px;
+}
+
+.contact-form{
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    background:#fff;
+}
+
+.contact-form h3{
+
+    font-size:24px;
+
+    margin-bottom:20px;
+}
+
+.contact-fields{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:11px;
+}
+
+.wide{
+
+    grid-column:
+        1 / -1;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    background:#061525;
+
+    color:#fff;
+
+    padding-top:65px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:40px;
+
+    padding-bottom:45px;
+}
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.footer-logo img{
+
+    width:65px;
+
+    height:65px;
+
+    object-fit:contain;
+
+    background:#fff;
+
+    border-radius:16px;
+}
+
+.footer-logo strong{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:18px;
+}
+
+.footer-logo span{
+
+    color:var(--orange);
+
+    font-size:9px;
+}
+
+.footer-about p{
+
+    max-width:300px;
+
+    color:
+        rgba(255,255,255,.48);
+
+    font-size:11px;
+
+    margin:16px 0;
+}
+
+.socials{
+
+    display:flex;
+
+    gap:8px;
+}
+
+.social{
+
+    width:37px;
+
+    height:37px;
+
+    border-radius:11px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+        rgba(255,255,255,.06);
+
+    transition:var(--transition);
+}
+
+.social:hover{
+
+    background:var(--orange);
+
+    transform:
+        translateY(-4px);
+}
+
+footer h4{
+
+    font-size:13px;
+
+    margin-bottom:15px;
+}
+
+.footer-links{
+
+    list-style:none;
+
+    display:grid;
+
+    gap:8px;
+}
+
+.footer-links a{
+
+    color:
+        rgba(255,255,255,.50);
+
+    font-size:10px;
+
+    transition:var(--transition);
+}
+
+.footer-links a:hover{
+
+    color:var(--orange);
+
+    padding-right:5px;
+}
+
+.copyright{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    padding:20px 0;
+
+    text-align:center;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size:9px;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp{
+
+    position:fixed;
+
+    bottom:22px;
+
+    left:22px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#25d366;
+
+    color:#fff;
+
+    font-size:27px;
+
+    z-index:4000;
+
+    box-shadow:
+        0 15px 35px
+        rgba(37,211,102,.35);
+
+    animation:
+        whatsappPulse 2s
+        infinite;
+}
+
+@keyframes whatsappPulse{
+
+    0%{
+        box-shadow:
+            0 0 0 0
+            rgba(37,211,102,.4);
+    }
+
+    70%{
+        box-shadow:
+            0 0 0 17px
+            rgba(37,211,102,0);
+    }
+
+    100%{
+        box-shadow:
+            0 0 0 0
+            rgba(37,211,102,0);
+    }
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(4,18,32,.70);
+
+    backdrop-filter:blur(8px);
+
+    z-index:9999;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal.show{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:
+        min(540px,100%);
+
+    background:#fff;
+
+    border-radius:27px;
+
+    padding:30px;
+
+    position:relative;
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.25);
+
+    animation:
+        modalIn .4s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes modalIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.95);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.close{
+
+    position:absolute;
+
+    top:14px;
+
+    left:14px;
+
+    width:38px;
+
+    height:38px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:var(--light);
+
+    font-size:20px;
+
+    color:var(--dark);
+}
+
+.modal-box h3{
+
+    font-size:24px;
+
+    color:var(--dark);
+
+    margin-bottom:5px;
+}
+
+.modal-box > p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin-bottom:20px;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    top:100px;
+
+    right:50%;
+
+    transform:
+        translateX(50%)
+        translateY(-20px);
+
+    background:var(--dark);
+
+    color:#fff;
+
+    padding:13px 20px;
+
+    border-radius:13px;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:10000;
+
+    transition:.3s;
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translateX(50%)
+        translateY(0);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(45px)
+        scale(.98);
+
+    transition:
+        opacity .8s ease,
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .nav-links{
+        gap:15px;
+    }
+
+    .services-grid{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .destination-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .search-form{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .search-btn{
+        min-height:50px;
+    }
+}
+
+
+@media(max-width:850px){
+
+    .nav-links{
+
+        position:fixed;
+
+        top:78px;
+
+        right:15px;
+
+        left:15px;
+
+        background:#fff;
+
+        border-radius:20px;
+
+        padding:15px;
+
+        box-shadow:
+            0 25px 60px
+            rgba(7,24,45,.15);
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:3px;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links a{
+        display:block;
+
+        padding:12px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .header-btn{
+        display:none;
+    }
+
+    .hero-grid{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+        padding:
+            60px 0 100px;
+    }
+
+    .hero{
+
+        min-height:auto;
+    }
+
+    .hero-scene{
+
+        height:510px;
+    }
+
+    .why-grid,
+    .security-box,
+    .umrah-grid,
+    .contact-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .steps-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .steps-grid::before{
+        display:none;
+    }
+
+    .review-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .container{
+
+        width:
+            calc(100% - 28px);
+    }
+
+    section{
+
+        padding:75px 0;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo img{
+        width:53px;
+        height:53px;
+    }
+
+    .logo-title{
+        font-size:15px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .hero-stats{
+        gap:20px;
+    }
+
+    .hero-scene{
+        height:420px;
+    }
+
+    .hero-3d-card{
+        width:
+            min(350px,92%);
+
+        min-height:410px;
+    }
+
+    .card-top{
+        height:205px;
+    }
+
+    .ticket-logo{
+        width:85px;
+        height:85px;
+    }
+
+    .ticket-title h3{
+        font-size:22px;
+    }
+
+    .route{
+        padding:22px;
+    }
+
+    .ticket-info{
+        margin:0 20px 20px;
+    }
+
+    .float-1{
+        left:0;
+        top:0;
+    }
+
+    .float-2{
+        right:0;
+        bottom:0;
+    }
+
+    .search-area{
+        margin-top:-45px;
+    }
+
+    .search-tabs{
+        overflow-x:auto;
+    }
+
+    .search-tab{
+        min-width:110px;
+    }
+
+    .search-form{
+        grid-template-columns:1fr;
+    }
+
+    .search-btn{
+        min-height:48px;
+    }
+
+    .services-grid,
+    .destination-grid,
+    .hotel-grid{
+        grid-template-columns:1fr;
+    }
+
+    .destination{
+        height:290px;
+    }
+
+    .why-scene{
+        min-height:350px;
+    }
+
+    .security-box{
+        padding:30px 22px;
+    }
+
+    .security-card{
+        height:280px;
+    }
+
+    .umrah-items{
+        grid-template-columns:1fr;
+    }
+
+    .steps-grid{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .contact-fields{
+        grid-template-columns:1fr;
+    }
+
+    .wide{
+        grid-column:auto;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .whatsapp{
+        width:55px;
+        height:55px;
+        left:15px;
+        bottom:15px;
+    }
+}
+
 </style>
+
 </head>
+
+
 <body>
 
-<header class="site-header" id="siteHeader">
-  <div class="wrap header-row">
-    <a href="#top" class="brand">
-      <span class="brand-mark">ب</span>
-      <span class="brand-name">بيتنا</span>
-    </a>
-    <nav class="main-nav" id="mainNav">
-      <a href="#collection">المجموعة</a>
-      <a href="#craft">الصنعة</a>
-      <a href="#contact">تواصل معنا</a>
-    </nav>
-    <div class="header-actions">
-      <button class="cart-btn" id="cartBtn" aria-label="السلة">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.4" fill="currentColor"/><circle cx="18" cy="21" r="1.4" fill="currentColor"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-      <button class="nav-toggle" id="navToggle" aria-label="القائمة">
-        <span></span><span></span><span></span>
-      </button>
+
+<!-- =========================================================
+     LOADER
+========================================================= -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-inner">
+
+        <img
+            src="kimogfgf.jpg"
+            class="loader-logo"
+            alt="أنا السودان"
+        >
+
+        <div class="loader-line"></div>
+
+        <div class="loader-text">
+            أنا السودان للسفر والسياحة
+        </div>
+
     </div>
-  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header" id="header">
+
+    <div class="container nav">
+
+
+        <a href="#home" class="logo">
+
+            <img
+                src="kimogfgf.jpg"
+                alt="أنا السودان"
+            >
+
+            <div>
+
+                <div class="logo-title">
+                    أنا السودان
+                </div>
+
+                <div class="logo-sub">
+                    وكالة سفر وسياحة
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">
+                    الرئيسية
+                </a>
+            </li>
+
+            <li>
+                <a href="#services">
+                    خدماتنا
+                </a>
+            </li>
+
+            <li>
+                <a href="#destinations">
+                    الوجهات
+                </a>
+            </li>
+
+            <li>
+                <a href="#hotels">
+                    الفنادق
+                </a>
+            </li>
+
+            <li>
+                <a href="#umrah">
+                    العمرة
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    تواصل معنا
+                </a>
+            </li>
+
+        </ul>
+
+
+        <button
+            class="header-btn"
+            onclick="openBooking('استفسار عام')"
+        >
+            احجز الآن
+        </button>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+        >
+            ☰
+        </button>
+
+    </div>
+
 </header>
 
-<main id="top">
 
-  <!-- HERO -->
-  <section class="hero" id="showcase">
-    <div class="hero-spotlight" id="heroSpotlight"></div>
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <div class="lamp-scene" aria-hidden="true">
-          <div class="lamp">
-            <div class="lamp-cord"></div>
-            <div class="lamp-shade">
-              <div class="lamp-bulb-glow"></div>
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+
+        <!-- TEXT -->
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+
+                <span></span>
+
+                رحلتك تبدأ من هنا
+
             </div>
-          </div>
-          <div class="lamp-light-pool"></div>
+
+
+            <h1>
+
+                نسافر معك...
+
+                <br>
+
+                <span>لنصنع ذكرياتك</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                أنا السودان وكالة سفر وسياحة متخصصة في
+                تذاكر الطيران والبواخر، حجز الفنادق،
+                خدمات العمرة والمساعدة في إجراءات السفر
+                إلى مصر والسعودية.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#booking"
+                    class="btn btn-primary"
+                >
+                    ✈ احجز رحلتك
+                </a>
+
+
+                <a
+                    href="#services"
+                    class="btn btn-outline"
+                >
+                    اكتشف خدماتنا
+                </a>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div class="stat">
+
+                    <strong>
+                        24/7
+                    </strong>
+
+                    <span>
+                        خدمة العملاء
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        3–7
+                    </strong>
+
+                    <span>
+                        نجوم الفنادق
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        ↔
+                    </strong>
+
+                    <span>
+                        سواكن جدة
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
-        <p class="hero-eyebrow">مجموعة الموسم</p>
-        <h1 class="hero-title">أثاث يُصاغ<br>مثل الحكاية</h1>
-        <p class="hero-desc">
-          كل قطعة في بيتنا تمر بين يدي نجّار قبل أن تصل بيتك.
-          اضغط على أي صورة لترى تفاصيلها الكاملة وسعرها.
-        </p>
-        <div class="hero-actions">
-          <a href="#collection" class="btn btn-primary">تصفح المجموعة</a>
-          <a href="#craft" class="btn btn-ghost">تعرّف على صناعتنا</a>
+
+
+        <!-- 3D CARD -->
+
+        <div
+            class="hero-scene"
+            id="heroScene"
+        >
+
+
+            <div class="float float-1">
+
+                <div class="float-icon">
+                    🚢
+                </div>
+
+                <div>
+
+                    <strong>
+                        سواكن ↔ جدة
+                    </strong>
+
+                    <span>
+                        رحلات بحرية
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="hero-3d-card"
+                id="heroCard"
+            >
+
+
+                <div class="card-top">
+
+                    <img
+                        src="kimogfgf.jpg"
+                        class="ticket-logo"
+                        alt="شعار أنا السودان"
+                    >
+
+
+                    <div class="ticket-title">
+
+                        <small>
+                            TRAVEL AGENCY
+                        </small>
+
+                        <h3>
+                            أنا السودان
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="route">
+
+                    <div class="city">
+
+                        <strong>
+                            SAW
+                        </strong>
+
+                        <span>
+                            سواكن
+                        </span>
+
+                    </div>
+
+
+                    <div class="route-line"></div>
+
+
+                    <div class="city">
+
+                        <strong>
+                            JED
+                        </strong>
+
+                        <span>
+                            جدة
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ticket-info">
+
+                    <div>
+
+                        <small>
+                            الرحلة
+                        </small>
+
+                        <strong>
+                            سواكن - جدة
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            الخدمة
+                        </small>
+
+                        <strong>
+                            باخرة
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            الحجز
+                        </small>
+
+                        <strong>
+                            متاح
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="float float-2">
+
+                <div class="float-icon">
+                    🏨
+                </div>
+
+                <div>
+
+                    <strong>
+                        فنادق فاخرة
+                    </strong>
+
+                    <span>
+                        3 إلى 7 نجوم
+                    </span>
+
+                </div>
+
+            </div>
+
+
         </div>
-      </div>
 
-      <div>
-        <div class="hero-gallery" id="heroGallery"></div>
-        <p class="gallery-hint">اضغط على أي قطعة لعرض التفاصيل والسعر</p>
-      </div>
     </div>
-  </section>
 
-  <!-- COLLECTION -->
-  <section class="collection" id="collection">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>المجموعة الكاملة</h2>
-        <p>ثماني قطع أساسية لبيت متكامل. اضغط على أي قطعة لعرض التفاصيل الكاملة والسعر.</p>
-      </div>
-      <div class="product-grid" id="productGrid"></div>
-    </div>
-  </section>
+</section>
 
-  <!-- CRAFT / ABOUT -->
-  <section class="craft" id="craft">
-    <div class="wrap craft-grid">
-      <div class="craft-photo">
-        <img id="craftImg" src="https://images.pexels.com/photos/4888598/pexels-photo-4888598.jpeg?auto=compress&cs=tinysrgb&w=800" alt="نجار يعمل على قطعة خشبية في ورشته">
-      </div>
-      <div class="craft-copy">
-        <p class="section-eyebrow">من ورشتنا</p>
-        <h2>خشب حقيقي، صبر حقيقي</h2>
-        <p>
-          نستخدم خشب الجوز والزان المعالج محلياً، ونترك للحبيبة الطبيعية أن تظهر بدل إخفائها.
-          كل طلب يُصنّع بعد التأكيد، فلا مخزون يشيخ في المستودعات — قطعتك تولد من أجلك أنت.
-        </p>
-        <ul class="craft-list">
-          <li><span>01</span>اختيار الخشب ومعاينة الحبيبة يدوياً</li>
-          <li><span>02</span>الحياكة والتنجيد بخيوط قطنية مزدوجة</li>
-          <li><span>03</span>التلميع بزيت طبيعي على ثلاث مراحل</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <p class="section-eyebrow">تواصل معنا</p>
-        <h2>زوروا الصالة أو اطلبوا لبيتكم</h2>
-        <p class="contact-desc">فريقنا يرد خلال ساعات العمل، ونوصّل داخل الخرطوم وأم درمان وبحري.</p>
-        <div class="contact-lines">
-          <p>📍 امدرمان — شارع الموردة</p>
-          <p>🕘 السبت–الخميس، 9ص – 9م</p>
-          <p>☎ 0912 345 678</p>
+<!-- =========================================================
+     SEARCH
+========================================================= -->
+
+<div
+    class="container search-area"
+    id="booking"
+>
+
+    <div class="search-box">
+
+
+        <div class="search-tabs">
+
+            <button
+                class="search-tab active"
+                data-type="flight"
+            >
+                ✈ تذاكر الطيران
+            </button>
+
+            <button
+                class="search-tab"
+                data-type="ship"
+            >
+                🚢 البواخر
+            </button>
+
+            <button
+                class="search-tab"
+                data-type="hotel"
+            >
+                🏨 الفنادق
+            </button>
+
         </div>
-      </div>
-      <form class="contact-form" id="contactForm">
-        <label>الاسم<input type="text" required placeholder="اسمك الكريم"></label>
-        <label>رقم الهاتف<input type="tel" required placeholder="09xxxxxxxx"></label>
-        <label>تفاصيل الطلب<textarea rows="3" placeholder="اسم القطعة المطلوبة"></textarea></label>
-        <button type="submit" class="btn btn-primary">إرسال الطلب</button>
-        <p class="form-note" id="formNote"></p>
-      </form>
-    </div>
-  </section>
 
-</main>
 
-<footer class="site-footer">
-  <div class="wrap footer-row">
-    <div class="brand">
-      <span class="brand-mark">ب</span>
-      <span class="brand-name">بيتنا</span>
+        <form
+            class="search-form"
+            id="searchForm"
+        >
+
+
+            <div class="field">
+
+                <label>
+                    من
+                </label>
+
+                <select id="from">
+
+                    <option>
+                        الخرطوم
+                    </option>
+
+                    <option>
+                        بورتسودان
+                    </option>
+
+                    <option>
+                        سواكن
+                    </option>
+
+                    <option>
+                        جدة
+                    </option>
+
+                    <option>
+                        القاهرة
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    إلى
+                </label>
+
+                <select id="to">
+
+                    <option>
+                        جدة
+                    </option>
+
+                    <option>
+                        سواكن
+                    </option>
+
+                    <option>
+                        الخرطوم
+                    </option>
+
+                    <option>
+                        القاهرة
+                    </option>
+
+                    <option>
+                        المدينة المنورة
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    تاريخ السفر
+                </label>
+
+                <input
+                    type="date"
+                    id="travelDate"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    المسافرون
+                </label>
+
+                <select id="passengers">
+
+                    <option>
+                        1 مسافر
+                    </option>
+
+                    <option>
+                        2 مسافرين
+                    </option>
+
+                    <option>
+                        3 مسافرين
+                    </option>
+
+                    <option>
+                        4 مسافرين
+                    </option>
+
+                    <option>
+                        5+ مسافرين
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="search-btn"
+                type="submit"
+            >
+                بحث
+            </button>
+
+        </form>
+
     </div>
-    <p>© 2026 بيتنا للأثاث — صناعة سودانية بأيدٍ سودانية.</p>
-  </div>
+
+</div>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section id="services" class="services">
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <span class="section-tag">
+                خدماتنا
+            </span>
+
+            <h2>
+                كل ما تحتاجه لرحلتك
+            </h2>
+
+            <p>
+                من التذكرة إلى الفندق... نحن معك في كل خطوة.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <div class="service reveal">
+
+                <div class="service-icon">
+                    ✈️
+                </div>
+
+                <h3>
+                    تذاكر الطيران
+                </h3>
+
+                <p>
+                    حجز تذاكر الطيران للرحلات المحلية والدولية.
+                </p>
+
+            </div>
+
+
+            <div class="service reveal">
+
+                <div class="service-icon">
+                    🚢
+                </div>
+
+                <h3>
+                    تذاكر البواخر
+                </h3>
+
+                <p>
+                    رحلات سواكن إلى جدة والعكس.
+                </p>
+
+            </div>
+
+
+            <div class="service reveal">
+
+                <div class="service-icon">
+                    🏨
+                </div>
+
+                <h3>
+                    حجز الفنادق
+                </h3>
+
+                <p>
+                    خيارات إقامة من 3 نجوم إلى 7 نجوم.
+                </p>
+
+            </div>
+
+
+            <div class="service reveal">
+
+                <div class="service-icon">
+                    🇪🇬
+                </div>
+
+                <h3>
+                    الموافقة الأمنية
+                </h3>
+
+                <p>
+                    مساعدة في إجراءات السفر إلى مصر.
+                </p>
+
+            </div>
+
+
+            <div class="service reveal">
+
+                <div class="service-icon">
+                    🕋
+                </div>
+
+                <h3>
+                    العمرة
+                </h3>
+
+                <p>
+                    برامج وترتيبات السفر والإقامة للعمرة.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DESTINATIONS
+========================================================= -->
+
+<section
+    class="destinations"
+    id="destinations"
+>
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <span class="section-tag">
+                وجهاتنا
+            </span>
+
+            <h2>
+                أين ستكون رحلتك القادمة؟
+            </h2>
+
+            <p>
+                اختر وجهتك ودع الباقي علينا.
+            </p>
+
+        </div>
+
+
+        <div class="destination-grid">
+
+
+            <div
+                class="destination reveal"
+                onclick="openBooking('رحلة إلى جدة')"
+            >
+
+                <div class="destination-symbol">
+                    🇸🇦
+                </div>
+
+                <div class="destination-content">
+
+                    <small>
+                        المملكة العربية السعودية
+                    </small>
+
+                    <h3>
+                        جدة
+                    </h3>
+
+                    <span>
+                        ✈ طيران &nbsp; 🚢 باخرة
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="destination orange reveal"
+                onclick="openBooking('رحلة إلى القاهرة')"
+            >
+
+                <div class="destination-symbol">
+                    🇪🇬
+                </div>
+
+                <div class="destination-content">
+
+                    <small>
+                        جمهورية مصر العربية
+                    </small>
+
+                    <h3>
+                        القاهرة
+                    </h3>
+
+                    <span>
+                        ✈ طيران &nbsp; 📋 موافقة
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="destination reveal"
+                onclick="openBooking('رحلة عمرة')"
+            >
+
+                <div class="destination-symbol">
+                    🕋
+                </div>
+
+                <div class="destination-content">
+
+                    <small>
+                        المملكة العربية السعودية
+                    </small>
+
+                    <h3>
+                        مكة
+                    </h3>
+
+                    <span>
+                        🕋 برامج عمرة
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="destination orange reveal"
+                onclick="openBooking('زيارة المدينة')"
+            >
+
+                <div class="destination-symbol">
+                    🕌
+                </div>
+
+                <div class="destination-content">
+
+                    <small>
+                        المملكة العربية السعودية
+                    </small>
+
+                    <h3>
+                        المدينة
+                    </h3>
+
+                    <span>
+                        🕌 إقامة وزيارات
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOTELS
+========================================================= -->
+
+<section
+    class="hotels"
+    id="hotels"
+>
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <span class="section-tag">
+                الفنادق
+            </span>
+
+            <h2>
+                اختر مستوى إقامتك
+            </h2>
+
+            <p>
+                نوفر لك خيارات إقامة تناسب ميزانيتك واحتياجاتك.
+            </p>
+
+        </div>
+
+
+        <div class="hotel-grid">
+
+
+            <div class="hotel reveal">
+
+                <div class="hotel-img">
+
+                    <div class="stars">
+                        ★★★
+                    </div>
+
+                </div>
+
+                <div class="hotel-body">
+
+                    <h3>
+                        فنادق 3 نجوم
+                    </h3>
+
+                    <p>
+                        إقامة اقتصادية ومريحة.
+                    </p>
+
+                    <div class="hotel-bottom">
+
+                        <div class="hotel-price">
+                            اسأل عن السعر
+                        </div>
+
+                        <button
+                            class="btn btn-primary"
+                            onclick="openBooking('حجز فندق 3 نجوم')"
+                        >
+                            احجز
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hotel reveal">
+
+                <div class="hotel-img">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+                <div class="hotel-body">
+
+                    <h3>
+                        فنادق 5 نجوم
+                    </h3>
+
+                    <p>
+                        إقامة راقية وخدمات متكاملة.
+                    </p>
+
+                    <div class="hotel-bottom">
+
+                        <div class="hotel-price">
+                            اسأل عن السعر
+                        </div>
+
+                        <button
+                            class="btn btn-primary"
+                            onclick="openBooking('حجز فندق 5 نجوم')"
+                        >
+                            احجز
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hotel reveal">
+
+                <div class="hotel-img">
+
+                    <div class="stars">
+                        ★★★★★★★
+                    </div>
+
+                </div>
+
+                <div class="hotel-body">
+
+                    <h3>
+                        فنادق 7 نجوم
+                    </h3>
+
+                    <p>
+                        تجربة فاخرة واستثنائية.
+                    </p>
+
+                    <div class="hotel-bottom">
+
+                        <div class="hotel-price">
+                            اسأل عن السعر
+                        </div>
+
+                        <button
+                            class="btn btn-primary"
+                            onclick="openBooking('حجز فندق 7 نجوم')"
+                        >
+                            احجز
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHY US
+========================================================= -->
+
+<section class="why">
+
+    <div class="container why-grid">
+
+
+        <div class="why-scene reveal">
+
+            <div class="why-float one">
+                ✈️ سفر أسهل
+            </div>
+
+
+            <div class="why-center">
+
+                <img
+                    src="kimogfgf.jpg"
+                    alt="أنا السودان"
+                >
+
+            </div>
+
+
+            <div class="why-float two">
+                🏨 إقامة مريحة
+            </div>
+
+        </div>
+
+
+        <div class="why-content reveal">
+
+            <span class="section-tag">
+                لماذا أنا السودان؟
+            </span>
+
+            <h2>
+                نحن لا نحجز لك رحلة فقط...
+                نحن نرتب تجربتك.
+            </h2>
+
+            <p>
+                نعمل على جعل إجراءات السفر أسهل وأكثر وضوحاً
+                من لحظة اختيار الخدمة وحتى إتمام رحلتك.
+            </p>
+
+
+            <div class="benefits">
+
+
+                <div class="benefit">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            خدمة شخصية
+                        </h4>
+
+                        <p>
+                            نساعدك في اختيار الأنسب لرحلتك.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            خيارات متعددة
+                        </h4>
+
+                        <p>
+                            طيران، بواخر، فنادق وعمرة.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            متابعة الإجراءات
+                        </h4>
+
+                        <p>
+                            نوضح لك المطلوب قبل السفر.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            سهولة التواصل
+                        </h4>
+
+                        <p>
+                            تواصل معنا مباشرة عبر الهاتف أو واتساب.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SECURITY EGYPT
+========================================================= -->
+
+<section class="security">
+
+    <div class="container">
+
+
+        <div class="security-box reveal">
+
+
+            <div class="security-content">
+
+                <span class="section-tag">
+                    خدمة السفر إلى مصر
+                </span>
+
+                <h2>
+                    إجراءات السفر إلى مصر
+                    أصبحت أوضح.
+                </h2>
+
+                <p>
+                    نساعدك في معرفة المتطلبات والإجراءات اللازمة
+                    لطلب الموافقة الأمنية قبل السفر.
+                </p>
+
+
+                <div class="security-list">
+
+                    <div>
+                        ✓ مراجعة البيانات والمستندات
+                    </div>
+
+                    <div>
+                        ✓ متابعة طلب الموافقة
+                    </div>
+
+                    <div>
+                        ✓ توضيح الإجراءات المطلوبة
+                    </div>
+
+                    <div>
+                        ✓ التواصل مع العميل أثناء المتابعة
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-card">
+
+                <div class="passport">
+
+                    <div>
+                        🛂
+                    </div>
+
+                    <strong>
+                        EGYPT
+                    </strong>
+
+                    <span>
+                        TRAVEL SERVICE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STEPS
+========================================================= -->
+
+<section class="steps">
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <span class="section-tag">
+                كيف تعمل الخدمة؟
+            </span>
+
+            <h2>
+                أربع خطوات لرحلتك
+            </h2>
+
+            <p>
+                تصميمنا لا يكتفي بالشكل الجميل؛ كل خطوة لها حركة
+                وتفاعل حتى يشعر الزائر أن الموقع حي.
+            </p>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    اختر الخدمة
+                </h3>
+
+                <p>
+                    طيران، باخرة، فندق، عمرة أو موافقة مصر.
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    أرسل الطلب
+                </h3>
+
+                <p>
+                    أدخل معلوماتك وبيانات الرحلة.
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    نراجع التفاصيل
+                </h3>
+
+                <p>
+                    يتواصل معك فريق أنا السودان.
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    استمتع برحلتك
+                </h3>
+
+                <p>
+                    بعد إتمام الإجراءات تكون جاهزاً للسفر.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     UMRAH
+========================================================= -->
+
+<section
+    class="umrah"
+    id="umrah"
+>
+
+    <div class="container umrah-grid">
+
+
+        <div class="umrah-content reveal">
+
+            <span class="section-tag">
+                خدمات العمرة
+            </span>
+
+            <h2>
+
+                رحلتك إلى
+
+                <span>
+                    بيت الله
+                </span>
+
+                تبدأ معنا.
+
+            </h2>
+
+            <p>
+                نوفر لك المساعدة في ترتيب خدمات السفر والإقامة
+                والتنسيق لرحلة العمرة.
+            </p>
+
+
+            <div class="umrah-items">
+
+                <div class="umrah-item">
+                    🕋 ترتيبات العمرة
+                </div>
+
+                <div class="umrah-item">
+                    ✈️ تذاكر السفر
+                </div>
+
+                <div class="umrah-item">
+                    🏨 حجز الفنادق
+                </div>
+
+                <div class="umrah-item">
+                    🚐 التنقلات
+                </div>
+
+                <div class="umrah-item">
+                    📋 متابعة الإجراءات
+                </div>
+
+                <div class="umrah-item">
+                    📞 خدمة العملاء
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="umrah-card reveal">
+
+            <h3>
+                اطلب برنامج العمرة
+            </h3>
+
+            <p>
+                أرسل بياناتك وسنتواصل معك عبر واتساب.
+            </p>
+
+
+            <form
+                class="form"
+                id="umrahForm"
+            >
+
+                <input
+                    class="input"
+                    id="umrahName"
+                    placeholder="الاسم الكامل"
+                    required
+                >
+
+                <input
+                    class="input"
+                    id="umrahPhone"
+                    type="tel"
+                    placeholder="رقم الهاتف"
+                    required
+                >
+
+                <select
+                    class="input"
+                    id="umrahPeople"
+                >
+
+                    <option>
+                        عدد الأشخاص
+                    </option>
+
+                    <option>
+                        شخص واحد
+                    </option>
+
+                    <option>
+                        شخصان
+                    </option>
+
+                    <option>
+                        3 أشخاص
+                    </option>
+
+                    <option>
+                        4 أشخاص
+                    </option>
+
+                    <option>
+                        5 أشخاص أو أكثر
+                    </option>
+
+                </select>
+
+
+                <textarea
+                    class="input"
+                    id="umrahMessage"
+                    placeholder="أي تفاصيل إضافية..."
+                ></textarea>
+
+
+                <button
+                    class="btn btn-primary"
+                    type="submit"
+                >
+                    إرسال الطلب عبر واتساب
+                </button>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+
+<section class="reviews">
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <span class="section-tag">
+                آراء العملاء
+            </span>
+
+            <h2>
+                ثقة عملائنا هي نجاحنا
+            </h2>
+
+        </div>
+
+
+        <div class="review-grid">
+
+
+            <div class="review reveal">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    تجربة ممتازة وسهولة كبيرة في التواصل
+                    وترتيب تفاصيل الرحلة.
+                </p>
+
+                <div class="user">
+
+                    <div class="avatar">
+                        م
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            محمد أحمد
+                        </strong>
+
+                        <span>
+                            عميل
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="review reveal">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    ساعدوني في حجز الفندق والتذكرة
+                    وكانت المتابعة ممتازة.
+                </p>
+
+                <div class="user">
+
+                    <div class="avatar">
+                        س
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            سارة محمد
+                        </strong>
+
+                        <span>
+                            عميلة
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="review reveal">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    خدمة محترمة وسريعة خصوصاً في ترتيبات
+                    السفر من سواكن إلى جدة.
+                </p>
+
+                <div class="user">
+
+                    <div class="avatar">
+                        ع
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            عبدالله علي
+                        </strong>
+
+                        <span>
+                            عميل
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    id="contact"
+    class="contact"
+>
+
+    <div class="container contact-grid">
+
+
+        <div class="contact-info reveal">
+
+            <h2>
+                تواصل معنا
+            </h2>
+
+            <p>
+                عندك استفسار أو داير تحجز؟
+                فريق أنا السودان جاهز لمساعدتك.
+            </p>
+
+
+            <div class="contact-list">
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            الهاتف
+                        </strong>
+
+                        <span>
+                            +249 00 000 0000
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            واتساب
+                        </strong>
+
+                        <span>
+                            متاح للحجز والاستفسارات
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            موقع المكتب
+                        </strong>
+
+                        <span>
+                            السودان
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            البريد
+                        </strong>
+
+                        <span>
+                            info@anasudan.com
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-form reveal">
+
+            <h3>
+                أرسل طلبك
+            </h3>
+
+
+            <form id="contactForm">
+
+                <div class="contact-fields">
+
+
+                    <input
+                        class="input"
+                        id="contactName"
+                        placeholder="الاسم الكامل"
+                        required
+                    >
+
+
+                    <input
+                        class="input"
+                        id="contactPhone"
+                        type="tel"
+                        placeholder="رقم الهاتف"
+                        required
+                    >
+
+
+                    <select
+                        class="input wide"
+                        id="contactService"
+                        required
+                    >
+
+                        <option value="">
+                            اختر الخدمة
+                        </option>
+
+                        <option>
+                            تذاكر طيران
+                        </option>
+
+                        <option>
+                            تذاكر باخرة
+                        </option>
+
+                        <option>
+                            حجز فندق
+                        </option>
+
+                        <option>
+                            موافقة أمنية لمصر
+                        </option>
+
+                        <option>
+                            عمرة
+                        </option>
+
+                    </select>
+
+
+                    <textarea
+                        class="input wide"
+                        id="contactMessage"
+                        placeholder="اكتب رسالتك..."
+                        required
+                    ></textarea>
+
+
+                    <button
+                        class="btn btn-primary wide"
+                        type="submit"
+                    >
+                        إرسال عبر واتساب
+                    </button>
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-about">
+
+                <div class="footer-logo">
+
+                    <img
+                        src="kimogfgf.jpg"
+                        alt="أنا السودان"
+                    >
+
+                    <div>
+
+                        <strong>
+                            أنا السودان
+                        </strong>
+
+                        <span>
+                            وكالة سفر وسياحة
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    نسافر معك... لنصنع ذكرياتك.
+                    خدمات سفر وسياحة من السودان إلى مختلف الوجهات.
+                </p>
+
+
+                <div class="socials">
+
+                    <a
+                        href="#"
+                        class="social"
+                    >
+                        f
+                    </a>
+
+                    <a
+                        href="#"
+                        class="social"
+                    >
+                        ◎
+                    </a>
+
+                    <a
+                        href="#"
+                        class="social"
+                    >
+                        ▶
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    روابط سريعة
+                </h4>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="#home">
+                            الرئيسية
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            خدماتنا
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#destinations">
+                            الوجهات
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            تواصل معنا
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    الخدمات
+                </h4>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="#booking">
+                            تذاكر الطيران
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#booking">
+                            البواخر
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#hotels">
+                            الفنادق
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#umrah">
+                            العمرة
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    تواصل معنا
+                </h4>
+
+                <ul class="footer-links">
+
+                    <li>
+                        +249 00 000 0000
+                    </li>
+
+                    <li>
+                        واتساب
+                    </li>
+
+                    <li>
+                        info@anasudan.com
+                    </li>
+
+                    <li>
+                        السودان
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 أنا السودان للسفر والسياحة
+            — جميع الحقوق محفوظة
+
+        </div>
+
+    </div>
+
 </footer>
 
-<a class="whatsapp-fab" href="https://wa.me/24994501781" target="_blank" rel="noopener" aria-label="راسلنا عبر واتساب">
-  <svg width="26" height="26" viewBox="0 0 32 32" fill="currentColor"><path d="M16.03 3C9.1 3 3.46 8.62 3.46 15.55c0 2.44.7 4.72 1.9 6.66L3 29l7.02-2.3a12.5 12.5 0 0 0 6 1.53h.01c6.93 0 12.57-5.62 12.57-12.55C28.6 8.62 22.96 3 16.03 3zm0 22.86h-.01a10.3 10.3 0 0 1-5.25-1.44l-.38-.22-3.9 1.28 1.3-3.82-.25-.4a10.24 10.24 0 0 1-1.58-5.46c0-5.68 4.63-10.3 10.32-10.3 2.76 0 5.35 1.07 7.3 3.02a10.22 10.22 0 0 1 3.02 7.29c0 5.68-4.63 10.3-10.32 10.3l-.25.75zm5.66-7.72c-.31-.16-1.83-.9-2.11-1-.28-.1-.49-.16-.7.16-.2.31-.8 1-.98 1.2-.18.2-.36.23-.67.08-.31-.16-1.31-.48-2.5-1.54a9.36 9.36 0 0 1-1.73-2.15c-.18-.31-.02-.48.14-.63.14-.14.31-.36.47-.55.15-.18.2-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.7-1.68-.96-2.3-.25-.6-.51-.52-.7-.53h-.6c-.2 0-.54.08-.83.39-.28.31-1.09 1.06-1.09 2.59s1.11 3 1.27 3.2c.15.2 2.19 3.34 5.3 4.68.74.32 1.32.51 1.77.66.74.24 1.42.2 1.95.12.6-.09 1.83-.75 2.09-1.47.26-.72.26-1.34.18-1.47-.07-.13-.28-.21-.59-.36z"/></svg>
+
+<!-- =========================================================
+     WHATSAPP
+========================================================= -->
+
+<a
+    href="https://wa.me/249000000000"
+    target="_blank"
+    class="whatsapp"
+    title="تواصل معنا عبر واتساب"
+>
+    💬
 </a>
 
-<!-- Product detail modal -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalClose" aria-label="إغلاق">✕</button>
-    <div class="modal-photo"><img id="modalImg" src="" alt=""></div>
-    <div class="modal-body">
-      <h3 id="modalTitle"></h3>
-      <p class="modal-price" id="modalPrice"></p>
-      <p class="modal-desc" id="modalDesc"></p>
-      <div class="modal-actions">
-        <button type="button" class="btn btn-primary" id="modalAddBtn">أضِف إلى السلة</button>
-        <a class="btn btn-ghost" id="modalWhatsapp" href="#" target="_blank" rel="noopener">اطلب عبر واتساب</a>
-      </div>
+
+<!-- =========================================================
+     BOOKING MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="modal-box">
+
+
+        <button
+            class="close"
+            onclick="closeBooking()"
+        >
+            ×
+        </button>
+
+
+        <h3>
+            طلب حجز
+        </h3>
+
+        <p id="modalText">
+            أرسل بياناتك وسنتواصل معك.
+        </p>
+
+
+        <form
+            class="form"
+            id="bookingForm"
+        >
+
+
+            <input
+                class="input"
+                id="bookingName"
+                placeholder="الاسم الكامل"
+                required
+            >
+
+
+            <input
+                class="input"
+                id="bookingPhone"
+                type="tel"
+                placeholder="رقم الهاتف"
+                required
+            >
+
+
+            <input
+                class="input"
+                id="bookingDate"
+                type="date"
+            >
+
+
+            <input
+                class="input"
+                id="bookingPeople"
+                type="number"
+                min="1"
+                value="1"
+                placeholder="عدد الأشخاص"
+            >
+
+
+            <textarea
+                class="input"
+                id="bookingNotes"
+                placeholder="ملاحظات إضافية..."
+            ></textarea>
+
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                إرسال عبر واتساب
+            </button>
+
+
+        </form>
+
     </div>
-  </div>
+
 </div>
 
-<!-- Cart drawer -->
-<div class="cart-overlay" id="cartOverlay">
-  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-    <div class="cart-head">
-      <h3 id="cartTitle">سلتك</h3>
-      <button class="cart-close" id="cartCloseBtn" aria-label="إغلاق السلة">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-foot">
-      <div class="cart-total-row">
-        <span>الإجمالي</span>
-        <span id="cartTotal">0 ج.س</span>
-      </div>
-      <button type="button" class="btn btn-primary" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
-    </div>
-  </aside>
-</div>
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
 
 <script>
-/* Real furniture photography from Pexels (free-to-use stock library).
-   Each image has a fixed URL so the layout stays consistent between reloads.
-   If a network blocks the host, the onerror handler below swaps in a plain
-   wood-tone panel instead of a broken image icon. */
-function pexels(id){ return `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`; }
 
-const WHATSAPP_NUMBER = '24994501781';
+/* =========================================================
+   إعدادات الموقع
+========================================================= */
 
-const PRODUCTS = [
-  { id:'sofa', name:'أريكة «مرسى» ثلاثية', price:'145,000 ج.س', priceValue:145000,
-    desc:'أريكة عائلية بذراعين واسعتين وإسفنج عالي الكثافة، تتحمل الاستخدام اليومي. تنجيد قطني مزدوج وأرجل خشب الجوز الصلب.',
-    img: pexels('189333') },
-  { id:'chair', name:'كرسي «نسيم» المنفرد', price:'62,000 ج.س', priceValue:62000,
-    desc:'كرسي استرخاء بمسند ظهر مرتفع، مثالي لركن القراءة. هيكل خشب الزان مع حشوة إسفنج طبقتين.',
-    img: pexels('26970304') },
-  { id:'table', name:'طاولة «جسر» الوسط', price:'38,500 ج.س', priceValue:38500,
-    desc:'سطح خشب جوز مصمت بأرجل معدنية دقيقة على طراز إسكندنافي. مقاومة للخدش وسهلة التنظيف.',
-    img: pexels('276551') },
-  { id:'bed', name:'سرير «هدوء» بمسند', price:'98,000 ج.س', priceValue:98000,
-    desc:'إطار سرير مقاس كوين مع مسند رأس منجّد وخط تماس خشبي. قاعدة خشبية متينة بدون حاجة لسوست إضافية.',
-    img: pexels('7303688') },
-  { id:'wardrobe', name:'خزانة «مدى» ثلاثية الأبواب', price:'112,000 ج.س', priceValue:112000,
-    desc:'مساحة تخزين واسعة بأبواب مضادة للانحناء ومفصلات صامتة. رفوف داخلية قابلة للتعديل.',
-    img: pexels('6585745') },
-  { id:'shelf', name:'رف «سطور» المفتوح', price:'46,000 ج.س', priceValue:46000,
-    desc:'رف كتب من خمس طبقات، يناسب الأركان الضيقة والمداخل. خشب صلب مقاوم للترهل مع الاستخدام الطويل.',
-    img: pexels('2883049') },
-  { id:'desk', name:'مكتب «أفق» للعمل', price:'54,000 ج.س', priceValue:54000,
-    desc:'سطح عمل فسيح بدرج جانبي مقفل، مناسب لغرف المكتب المنزلي. تشطيب خشبي مقاوم للبقع.',
-    img: pexels('8490189') },
-  { id:'dining', name:'طاولة «مأدبة» للطعام', price:'128,000 ج.س', priceValue:128000,
-    desc:'طاولة عائلية تتسع لست كراسٍ، بسطح خشب مصمت وقاعدة متينة. مثالية للتجمعات العائلية اليومية.',
-    img: pexels('4044798') }
-];
-const PRODUCTS_BY_ID = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
+/*
+   غيّر الرقم هنا إلى رقم واتساب المكتب.
 
-/* ============ Cart state (persisted) ============ */
-let cart = {};
-try{
-  const saved = localStorage.getItem('bitna-cart');
-  if(saved) cart = JSON.parse(saved);
-}catch(e){ cart = {}; }
+   مثال:
 
-function saveCart(){
-  try{ localStorage.setItem('bitna-cart', JSON.stringify(cart)); }catch(e){}
-}
-function cartItemCount(){
-  return Object.values(cart).reduce((sum, qty) => sum + qty, 0);
-}
-function cartTotalValue(){
-  return Object.entries(cart).reduce((sum, [id, qty]) => sum + (PRODUCTS_BY_ID[id]?.priceValue || 0) * qty, 0);
-}
-function formatMoney(n){
-  return n.toLocaleString('en-US') + ' ج.س';
-}
+   249912345678
 
-const cartBtn = document.getElementById('cartBtn');
-const cartCountEl = document.getElementById('cartCount');
-const cartOverlay = document.getElementById('cartOverlay');
-const cartItemsEl = document.getElementById('cartItems');
-const cartTotalEl = document.getElementById('cartTotal');
-const checkoutBtn = document.getElementById('checkoutBtn');
+   بدون +
+*/
 
-function refreshCartBadge(){
-  cartCountEl.textContent = cartItemCount();
-}
+const WHATSAPP_NUMBER =
+    "249000000000";
 
-function renderCartDrawer(){
-  const ids = Object.keys(cart).filter(id => cart[id] > 0);
-  refreshCartBadge();
 
-  if(ids.length === 0){
-    cartItemsEl.innerHTML = '';
-    const empty = document.createElement('div');
-    empty.className = 'cart-empty';
-    empty.innerHTML = `<span>🛋️</span><p>سلتك فارغة حالياً</p><p style="font-size:13px;">تصفّح المجموعة وأضِف القطع التي تعجبك</p>`;
-    cartItemsEl.appendChild(empty);
-    checkoutBtn.disabled = true;
-  }else{
-    cartItemsEl.innerHTML = '';
-    ids.forEach(id => {
-      const p = PRODUCTS_BY_ID[id];
-      const qty = cart[id];
-      const row = document.createElement('div');
-      row.className = 'cart-item';
+/* =========================================================
+   LOADER
+========================================================= */
 
-      const img = document.createElement('img');
-      img.src = p.img; img.alt = p.name; img.loading = 'lazy';
+window.addEventListener(
+    "load",
+    function(){
 
-      const info = document.createElement('div');
-      const name = document.createElement('p');
-      name.className = 'cart-item-name'; name.textContent = p.name;
-      const unitPrice = document.createElement('p');
-      unitPrice.className = 'cart-item-price'; unitPrice.textContent = p.price + ' / قطعة';
-      const controls = document.createElement('div');
-      controls.className = 'cart-item-controls';
-      const minusBtn = document.createElement('button');
-      minusBtn.type = 'button'; minusBtn.className = 'qty-btn'; minusBtn.textContent = '−';
-      minusBtn.setAttribute('aria-label', 'إنقاص الكمية');
-      minusBtn.addEventListener('click', () => changeQty(id, -1));
-      const qtyVal = document.createElement('span');
-      qtyVal.className = 'qty-value'; qtyVal.textContent = qty;
-      const plusBtn = document.createElement('button');
-      plusBtn.type = 'button'; plusBtn.className = 'qty-btn'; plusBtn.textContent = '+';
-      plusBtn.setAttribute('aria-label', 'زيادة الكمية');
-      plusBtn.addEventListener('click', () => changeQty(id, 1));
-      controls.append(minusBtn, qtyVal, plusBtn);
-      const lineTotal = document.createElement('p');
-      lineTotal.className = 'cart-item-line-total';
-      lineTotal.textContent = formatMoney(p.priceValue * qty);
-      info.append(name, unitPrice, controls, lineTotal);
+        setTimeout(
+            function(){
 
-      const removeBtn = document.createElement('button');
-      removeBtn.type = 'button'; removeBtn.className = 'cart-item-remove';
-      removeBtn.textContent = 'حذف';
-      removeBtn.addEventListener('click', () => removeFromCart(id));
+                document
+                    .getElementById("loader")
+                    .classList.add("hide");
 
-      row.append(img, info, removeBtn);
-      cartItemsEl.appendChild(row);
-    });
-    checkoutBtn.disabled = false;
-  }
+            },
+            700
+        );
 
-  cartTotalEl.textContent = formatMoney(cartTotalValue());
-}
+    }
+);
 
-function addToCart(id, qty = 1){
-  cart[id] = (cart[id] || 0) + qty;
-  saveCart();
-  renderCartDrawer();
-  cartBtn.classList.remove('pulse');
-  void cartBtn.offsetWidth;
-  cartBtn.classList.add('pulse');
-}
-function changeQty(id, delta){
-  if(!cart[id]) return;
-  cart[id] += delta;
-  if(cart[id] <= 0) delete cart[id];
-  saveCart();
-  renderCartDrawer();
-}
-function removeFromCart(id){
-  delete cart[id];
-  saveCart();
-  renderCartDrawer();
-}
 
-function openCart(){
-  renderCartDrawer();
-  cartOverlay.classList.add('open');
-}
-function closeCart(){
-  cartOverlay.classList.remove('open');
-}
-cartBtn.addEventListener('click', openCart);
-document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
-cartOverlay.addEventListener('click', (e) => { if(e.target === cartOverlay) closeCart(); });
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
 
-checkoutBtn.addEventListener('click', () => {
-  const ids = Object.keys(cart).filter(id => cart[id] > 0);
-  if(ids.length === 0) return;
-  const lines = ids.map(id => {
-    const p = PRODUCTS_BY_ID[id];
-    return `- ${p.name} × ${cart[id]} = ${formatMoney(p.priceValue * cart[id])}`;
-  });
-  const message = `أرغب في طلب التالي من بيتنا:\n${lines.join('\n')}\n\nالإجمالي: ${formatMoney(cartTotalValue())}`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
-});
+const header =
+    document.getElementById("header");
 
-function attachImgFade(img, fallbackParent){
-  img.addEventListener('load', ()=> img.classList.add('loaded'));
-  img.addEventListener('error', ()=>{
-    fallbackParent.style.background = 'linear-gradient(155deg, var(--wood-500), var(--wood-900))';
-    img.remove();
-  });
-}
+window.addEventListener(
+    "scroll",
+    function(){
 
-/* ============ hero floating gallery (first 6 products) ============ */
-const heroGallery = document.getElementById('heroGallery');
-PRODUCTS.slice(0,6).forEach((p, i)=>{
-  const tile = document.createElement('button');
-  tile.type = 'button';
-  tile.className = `float-tile tile-${i+1}`;
-  tile.setAttribute('aria-label', `عرض تفاصيل ${p.name}`);
-  const img = document.createElement('img');
-  img.src = p.img; img.alt = p.name; img.loading = 'lazy';
-  attachImgFade(img, tile);
-  const label = document.createElement('span');
-  label.className = 'tile-label';
-  label.textContent = p.name;
-  tile.append(img, label);
-  tile.addEventListener('click', ()=> openModal(p));
-  heroGallery.appendChild(tile);
-});
+        if(window.scrollY > 40){
 
-/* ============ product grid (all products) ============ */
-const grid = document.getElementById('productGrid');
-PRODUCTS.forEach(p=>{
-  const card = document.createElement('article');
-  card.className = 'product-card';
+            header.classList.add("scrolled");
 
-  const photoWrap = document.createElement('div');
-  photoWrap.className = 'photo-wrap';
-  const img = document.createElement('img');
-  img.src = p.img; img.alt = p.name; img.loading = 'lazy';
-  attachImgFade(img, photoWrap);
-  photoWrap.appendChild(img);
+        }else{
 
-  const body = document.createElement('div');
-  body.className = 'product-body';
+            header.classList.remove("scrolled");
 
-  const name = document.createElement('h3');
-  name.className = 'product-name';
-  name.textContent = p.name;
+        }
 
-  const desc = document.createElement('p');
-  desc.className = 'product-desc';
-  desc.textContent = p.desc;
+    }
+);
 
-  const foot = document.createElement('div');
-  foot.className = 'product-foot';
-  const price = document.createElement('span');
-  price.className = 'product-price';
-  price.textContent = p.price;
-  foot.append(price);
 
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'add-btn';
-  btn.textContent = 'أضِف إلى السلة';
-  btn.addEventListener('click', (e)=>{
-    e.stopPropagation();
-    addToCart(p.id);
-    btn.textContent = 'أُضيفت ✓';
-    btn.classList.add('added');
-    setTimeout(()=>{ btn.textContent='أضِف إلى السلة'; btn.classList.remove('added'); }, 1400);
-  });
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-  body.append(name, desc, foot, btn);
-  card.append(photoWrap, body);
-  card.addEventListener('click', ()=> openModal(p));
-  grid.appendChild(card);
-});
+const menuBtn =
+    document.getElementById("menuBtn");
 
-/* reveal cards on scroll */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
-  });
-}, { threshold:0.15 });
-document.querySelectorAll('.product-card').forEach(c=>io.observe(c));
+const navLinks =
+    document.getElementById("navLinks");
 
-/* craft image fade / fallback */
-const craftImg = document.getElementById('craftImg');
-attachImgFade(craftImg, craftImg.closest('.craft-photo'));
+menuBtn.addEventListener(
+    "click",
+    function(){
 
-/* ============ product detail modal ============ */
-const modalOverlay = document.getElementById('modalOverlay');
-const modalImg = document.getElementById('modalImg');
-const modalTitle = document.getElementById('modalTitle');
-const modalPrice = document.getElementById('modalPrice');
-const modalDesc = document.getElementById('modalDesc');
-const modalAddBtn = document.getElementById('modalAddBtn');
-const modalWhatsapp = document.getElementById('modalWhatsapp');
-const modalClose = document.getElementById('modalClose');
-let lastFocused = null;
+        navLinks.classList.toggle("show");
 
-function openModal(p){
-  lastFocused = document.activeElement;
-  modalImg.src = p.img; modalImg.alt = p.name;
-  modalTitle.textContent = p.name;
-  modalPrice.textContent = p.price;
-  modalDesc.textContent = p.desc;
-  modalWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('أرغب في الاستفسار عن: ' + p.name)}`;
-  modalAddBtn.onclick = ()=>{
-    addToCart(p.id);
-    modalAddBtn.textContent = 'أُضيفت ✓';
-    setTimeout(()=>{ modalAddBtn.textContent = 'أضِف إلى السلة'; }, 1200);
-  };
-  modalAddBtn.textContent = 'أضِف إلى السلة';
-  modalOverlay.classList.add('open');
-  modalClose.focus();
-}
-function closeModal(){
-  modalOverlay.classList.remove('open');
-  if(lastFocused) lastFocused.focus();
-}
-modalClose.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', (e)=>{ if(e.target === modalOverlay) closeModal(); });
-document.addEventListener('keydown', (e)=>{
-  if(e.key !== 'Escape') return;
-  if(modalOverlay.classList.contains('open')) closeModal();
-  if(cartOverlay.classList.contains('open')) closeCart();
-});
+        menuBtn.textContent =
+            navLinks.classList.contains("show")
+            ? "×"
+            : "☰";
 
-/* ============ nav toggle ============ */
-const navToggle = document.getElementById('navToggle');
-const mainNav = document.getElementById('mainNav');
-navToggle.addEventListener('click', ()=> mainNav.classList.toggle('open'));
-mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mainNav.classList.remove('open')));
+    }
+);
 
-/* ============ contact form ============ */
-const contactForm = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
-contactForm.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  formNote.textContent = 'وصلنا طلبك — سنتواصل معك قريباً بإذن الله.';
-  contactForm.reset();
-});
 
-/* ============ hero lamp light — cursor spotlight (desktop only) ============ */
-const heroSection = document.getElementById('showcase');
-const heroSpotlight = document.getElementById('heroSpotlight');
-if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
-  heroSection.addEventListener('mousemove', (e)=>{
-    const rect = heroSection.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    heroSection.style.setProperty('--mx', x + '%');
-    heroSection.style.setProperty('--my', y + '%');
-  });
-  heroSection.addEventListener('mouseenter', ()=> heroSection.classList.add('lit'));
-  heroSection.addEventListener('mouseleave', ()=> heroSection.classList.remove('lit'));
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(
+        function(link){
+
+            link.addEventListener(
+                "click",
+                function(){
+
+                    navLinks.classList.remove("show");
+
+                    menuBtn.textContent="☰";
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const observer =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(
+                function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+revealElements.forEach(
+    function(element){
+
+        observer.observe(element);
+
+    }
+);
+
+
+/* =========================================================
+   3D HERO MOUSE EFFECT
+========================================================= */
+
+const heroScene =
+    document.getElementById("heroScene");
+
+const heroCard =
+    document.getElementById("heroCard");
+
+
+if(heroScene && heroCard){
+
+    heroScene.addEventListener(
+        "mousemove",
+        function(e){
+
+            const rect =
+                heroScene.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+            const y =
+                e.clientY - rect.top;
+
+            const centerX =
+                rect.width / 2;
+
+            const centerY =
+                rect.height / 2;
+
+            const rotateY =
+                ((x - centerX) / centerX) * 10;
+
+            const rotateX =
+                ((centerY - y) / centerY) * 8;
+
+            heroCard.style.transform =
+                `
+                rotateY(${-10 + rotateY}deg)
+                rotateX(${5 + rotateX}deg)
+                `;
+        }
+    );
+
+
+    heroScene.addEventListener(
+        "mouseleave",
+        function(){
+
+            heroCard.style.transform =
+                `
+                rotateY(-10deg)
+                rotateX(5deg)
+                `;
+
+        }
+    );
+
 }
 
-/* initial cart badge on load (in case of persisted cart) */
-refreshCartBadge();
+
+/* =========================================================
+   SEARCH TABS
+========================================================= */
+
+const searchTabs =
+    document.querySelectorAll(".search-tab");
+
+let currentSearchType =
+    "flight";
+
+
+searchTabs.forEach(
+    function(tab){
+
+        tab.addEventListener(
+            "click",
+            function(){
+
+                searchTabs.forEach(
+                    function(item){
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+                tab.classList.add("active");
+
+                currentSearchType =
+                    tab.dataset.type;
+
+
+                const from =
+                    document.getElementById("from");
+
+                const to =
+                    document.getElementById("to");
+
+
+                if(currentSearchType === "ship"){
+
+                    from.innerHTML=`
+
+                        <option>سواكن</option>
+                        <option>جدة</option>
+
+                    `;
+
+                    to.innerHTML=`
+
+                        <option>جدة</option>
+                        <option>سواكن</option>
+
+                    `;
+
+                }
+
+
+                else if(
+                    currentSearchType === "hotel"
+                ){
+
+                    from.innerHTML=`
+
+                        <option>جدة</option>
+                        <option>مكة</option>
+                        <option>المدينة المنورة</option>
+                        <option>القاهرة</option>
+
+                    `;
+
+                    to.innerHTML=`
+
+                        <option>اختر المدينة</option>
+                        <option>جدة</option>
+                        <option>مكة</option>
+                        <option>المدينة المنورة</option>
+                        <option>القاهرة</option>
+
+                    `;
+
+                }
+
+
+                else{
+
+                    from.innerHTML=`
+
+                        <option>الخرطوم</option>
+                        <option>بورتسودان</option>
+                        <option>سواكن</option>
+                        <option>جدة</option>
+                        <option>القاهرة</option>
+
+                    `;
+
+                    to.innerHTML=`
+
+                        <option>جدة</option>
+                        <option>الخرطوم</option>
+                        <option>سواكن</option>
+                        <option>القاهرة</option>
+                        <option>المدينة المنورة</option>
+
+                    `;
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+document
+    .getElementById("searchForm")
+    .addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+
+            const from =
+                document.getElementById("from").value;
+
+            const to =
+                document.getElementById("to").value;
+
+            const date =
+                document.getElementById("travelDate").value;
+
+            const passengers =
+                document.getElementById("passengers").value;
+
+
+            let service =
+                "تذكرة طيران";
+
+
+            if(currentSearchType==="ship"){
+
+                service =
+                    "تذكرة باخرة";
+
+            }
+
+            if(currentSearchType==="hotel"){
+
+                service =
+                    "حجز فندق";
+
+            }
+
+
+            const message =
+
+                `السلام عليكم، أريد الاستفسار عن ${service}%0A%0A` +
+
+                `من: ${from}%0A` +
+
+                `إلى: ${to}%0A` +
+
+                `التاريخ: ${date || "لم يحدد"}%0A` +
+
+                `المسافرون: ${passengers}`;
+
+
+            window.open(
+
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+
+                "_blank"
+
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   BOOKING MODAL
+========================================================= */
+
+const modal =
+    document.getElementById("modal");
+
+const modalText =
+    document.getElementById("modalText");
+
+
+function openBooking(service){
+
+    modalText.textContent =
+        `طلب حجز: ${service}`;
+
+    modal.classList.add("show");
+
+}
+
+
+function closeBooking(){
+
+    modal.classList.remove("show");
+
+}
+
+
+modal.addEventListener(
+    "click",
+    function(e){
+
+        if(e.target === modal){
+
+            closeBooking();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   BOOKING FORM
+========================================================= */
+
+document
+    .getElementById("bookingForm")
+    .addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+
+            const name =
+                document.getElementById("bookingName").value;
+
+            const phone =
+                document.getElementById("bookingPhone").value;
+
+            const date =
+                document.getElementById("bookingDate").value;
+
+            const people =
+                document.getElementById("bookingPeople").value;
+
+            const notes =
+                document.getElementById("bookingNotes").value;
+
+
+            const service =
+                modalText.textContent;
+
+
+            const message =
+
+                `السلام عليكم، أريد ${service}%0A%0A` +
+
+                `الاسم: ${name}%0A` +
+
+                `الهاتف: ${phone}%0A` +
+
+                `التاريخ: ${date || "لم يحدد"}%0A` +
+
+                `عدد الأشخاص: ${people}%0A` +
+
+                `الملاحظات: ${notes || "لا توجد"}`;
+
+
+            window.open(
+
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+
+                "_blank"
+
+            );
+
+
+            document
+                .getElementById("bookingForm")
+                .reset();
+
+            closeBooking();
+
+        }
+    );
+
+
+/* =========================================================
+   UMRAH FORM
+========================================================= */
+
+document
+    .getElementById("umrahForm")
+    .addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+
+            const name =
+                document.getElementById("umrahName").value;
+
+            const phone =
+                document.getElementById("umrahPhone").value;
+
+            const people =
+                document.getElementById("umrahPeople").value;
+
+            const message =
+                document.getElementById("umrahMessage").value;
+
+
+            const text =
+
+                `السلام عليكم، أريد طلب برنامج عمرة.%0A%0A` +
+
+                `الاسم: ${name}%0A` +
+
+                `الهاتف: ${phone}%0A` +
+
+                `عدد الأشخاص: ${people}%0A` +
+
+                `التفاصيل: ${message || "لا توجد"}`;
+
+
+            window.open(
+
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`,
+
+                "_blank"
+
+            );
+
+
+            e.target.reset();
+
+        }
+    );
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+document
+    .getElementById("contactForm")
+    .addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+
+            const name =
+                document.getElementById("contactName").value;
+
+            const phone =
+                document.getElementById("contactPhone").value;
+
+            const service =
+                document.getElementById("contactService").value;
+
+            const message =
+                document.getElementById("contactMessage").value;
+
+
+            const text =
+
+                `السلام عليكم، أريد التواصل مع وكالة أنا السودان.%0A%0A` +
+
+                `الاسم: ${name}%0A` +
+
+                `الهاتف: ${phone}%0A` +
+
+                `الخدمة: ${service}%0A` +
+
+                `الرسالة: ${message}`;
+
+
+            window.open(
+
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`,
+
+                "_blank"
+
+            );
+
+
+            e.target.reset();
+
+        }
+    );
+
+
+/* =========================================================
+   MIN DATE
+========================================================= */
+
+const today =
+    new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+document
+    .getElementById("travelDate")
+    .setAttribute(
+        "min",
+        today
+    );
+
+
+document
+    .getElementById("bookingDate")
+    .setAttribute(
+        "min",
+        today
+    );
+
+
+/* =========================================================
+   ESCAPE MODAL
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key==="Escape"){
+
+            closeBooking();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+
+    setTimeout(
+        function(){
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        3000
+    );
+
+}
+
 </script>
+
 </body>
 </html>
