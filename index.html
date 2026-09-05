@@ -130,6 +130,8 @@ section{padding:110px 0;position:relative;}
 .field label{display:block;font-size:9px;color:var(--muted);font-weight:700;}
 .field input,.field select{width:100%;border:0;outline:0;background:transparent;font-size:11px;font-weight:900;color:var(--dark);}
 .search-btn{border:0;border-radius:14px;padding:0 25px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:white;font-size:12px;font-weight:900;}
+.book-now-cta{text-align:center;margin-top:22px;}
+.book-now-cta .btn{padding:16px 34px;font-size:14px;}
 .services{background:#fff;}
 .services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:17px;}
 .service{padding:28px 18px;background:#fff;border-radius:25px;border:1px solid var(--border);text-align:center;position:relative;overflow:hidden;transition:var(--transition);transform-style:preserve-3d;}
@@ -138,6 +140,7 @@ section{padding:110px 0;position:relative;}
 .service:hover::before{transform:scaleX(1);}
 .service-icon{width:70px;height:70px;border-radius:21px;margin:0 auto 18px;display:grid;place-items:center;font-size:31px;background:rgba(45,169,223,.10);transform:translateZ(20px);transition:var(--transition);}
 .service:hover .service-icon{transform:translateZ(30px) rotateY(10deg) scale(1.08);}
+.service-action{margin-top:15px;width:100%;padding:11px 14px;font-size:11px;}
 .service:nth-child(even) .service-icon{background:rgba(255,138,0,.10);}
 .service h3{font-size:15px;color:var(--dark);margin-bottom:7px;}
 .service p{font-size:10px;color:var(--muted);}
@@ -157,12 +160,17 @@ section{padding:110px 0;position:relative;}
 .offer-media.type-hotel{background:linear-gradient(135deg,var(--orange),var(--orange2));}
 .offer-media.type-security{background:linear-gradient(135deg,#e94b5f,#b6293b);}
 .offer-media.type-umrah{background:linear-gradient(135deg,#18a66a,#0f7a4c);}
+.offer-media.type-custom{background:linear-gradient(135deg,#7c5cff,#4a2ec7);}
+.custom-offer-card{border:2px dashed rgba(124,92,255,.35);}
+.custom-service-card{border:2px dashed rgba(124,92,255,.35);background:linear-gradient(180deg,#fff,#faf8ff);}
+.custom-service-card .service-icon{background:rgba(124,92,255,.12)!important;color:#5b3ce0;}
 .offer-type-badge{position:absolute;top:15px;right:15px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:50px;font-size:10px;font-weight:900;z-index:2;display:flex;align-items:center;gap:5px;}
 .offer-type-badge.type-flight{color:var(--blue);}
 .offer-type-badge.type-ferry{color:var(--blue3);}
 .offer-type-badge.type-hotel{color:var(--orange2);}
 .offer-type-badge.type-security{color:#e94b5f;}
 .offer-type-badge.type-umrah{color:#18a66a;}
+.offer-type-badge.type-custom{color:#5b3ce0;}
 .offer-status{position:absolute;top:15px;left:15px;background:rgba(7,24,45,.55);color:#fff;padding:5px 11px;border-radius:50px;font-size:9px;font-weight:800;z-index:2;}
 .offer-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;}
 .offer-body h3{font-size:16px;color:var(--dark);}
@@ -204,7 +212,26 @@ section{padding:110px 0;position:relative;}
 .hotel-body p{color:var(--muted);font-size:10px;margin-bottom:17px;}
 .hotel-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:15px;}
 .hotel-price{color:var(--orange);font-weight:900;font-size:12px;}
-.empty-state{grid-column:1 / -1;text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;}
+
+/* زر الحجز داخل حالة عدم وجود عروض */
+.empty-state{
+    grid-column:1 / -1;
+    text-align:center;
+    padding:50px 20px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.empty-state-message{
+    margin-bottom:18px;
+}
+
+.empty-book-btn{
+    margin-top:5px;
+    padding:13px 28px;
+    font-size:12px;
+}
+
 .why{background:var(--light);}
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .why-scene{min-height:500px;border-radius:35px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 30px 70px rgba(18,74,160,.22);transform-style:preserve-3d;}
@@ -320,6 +347,42 @@ footer h4{font-size:13px;margin-bottom:15px;}
 .close{position:absolute;top:14px;left:14px;width:38px;height:38px;border:0;border-radius:11px;background:var(--light);font-size:20px;color:var(--dark);}
 .modal-box h3{font-size:24px;color:var(--dark);margin-bottom:5px;}
 .modal-box > p{color:var(--muted);font-size:11px;margin-bottom:20px;}
+
+.referral-badge{
+    position:fixed;
+    top:94px;
+    right:20px;
+    z-index:4500;
+    display:none;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.96);
+    color:var(--dark);
+    border:1px solid rgba(18,74,160,.10);
+    box-shadow:0 15px 35px rgba(7,24,45,.12);
+    border-radius:14px;
+    padding:9px 13px;
+    font-size:10px;
+    font-weight:900;
+    backdrop-filter:blur(12px);
+    animation:referralIn .5s ease both;
+}
+.referral-badge.show{display:flex;}
+.referral-badge span:first-child{
+    width:28px;height:28px;border-radius:9px;
+    display:grid;place-items:center;
+    color:#fff;background:linear-gradient(135deg,var(--orange),var(--orange2));
+}
+.referral-badge small{display:block;color:var(--muted);font-size:8px;font-weight:700;}
+.referral-badge strong{display:block;color:var(--blue);font-size:10px;}
+@keyframes referralIn{
+    from{opacity:0;transform:translateY(-12px) scale(.96);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+}
+@media(max-width:600px){
+    .referral-badge{top:82px;right:10px;max-width:calc(100% - 20px);}
+}
+
 .toast{position:fixed;top:100px;right:50%;transform:translateX(50%) translateY(-20px);background:var(--dark);color:#fff;padding:13px 20px;border-radius:13px;font-size:11px;font-weight:800;opacity:0;pointer-events:none;z-index:10000;transition:.3s;}
 .toast.show{opacity:1;transform:translateX(50%) translateY(0);}
 .reveal{opacity:0;transform:translateY(45px) scale(.98);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);}
@@ -351,6 +414,7 @@ footer h4{font-size:13px;margin-bottom:15px;}
                 <div class="logo-sub">وكالة سفر وسياحة</div>
             </div>
         </a>
+
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">الرئيسية</a></li>
             <li><a href="#services">خدماتنا</a></li>
@@ -360,80 +424,201 @@ footer h4{font-size:13px;margin-bottom:15px;}
             <li><a href="#umrah">العمرة</a></li>
             <li><a href="#contact">تواصل معنا</a></li>
         </ul>
-        <button class="header-btn" onclick="openBooking('استفسار عام')">احجز الآن</button>
+
+        <button class="header-btn" onclick="openBooking('استفسار عام')">
+            احجز الآن
+        </button>
+
         <button class="menu-btn" id="menuBtn">☰</button>
     </div>
 </header>
 
+<div class="referral-badge" id="referralBadge" aria-live="polite">
+    <span>👤</span>
+    <div>
+        <small>تم الوصول عبر المسوق</small>
+        <strong id="referralBadgeName"></strong>
+    </div>
+</div>
+
+
 <section class="hero" id="home">
     <div class="container hero-grid">
+
         <div class="hero-content">
-            <div class="hero-tag"><span></span> رحلتك تبدأ من هنا</div>
-            <h1>نسافر معك... <br><span>لنصنع ذكرياتك</span></h1>
-            <p class="hero-description">أنا السودان وكالة سفر وسياحة متخصصة في تذاكر الطيران والبواخر، حجز الفنادق، خدمات العمرة والمساعدة في إجراءات السفر إلى مصر والسعودية.</p>
+
+            <div class="hero-tag">
+                <span></span>
+                رحلتك تبدأ من هنا
+            </div>
+
+            <h1>
+                نسافر معك...
+                <br>
+                <span>لنصنع ذكرياتك</span>
+            </h1>
+
+            <p class="hero-description">
+                أنا السودان وكالة سفر وسياحة متخصصة في تذاكر الطيران والبواخر،
+                حجز الفنادق، خدمات العمرة والمساعدة في إجراءات السفر إلى مصر والسعودية.
+            </p>
+
             <div class="hero-buttons">
-                <a href="#booking" class="btn btn-primary">✈ احجز رحلتك</a>
-                <a href="#services" class="btn btn-outline">اكتشف خدماتنا</a>
+                <a href="#booking" class="btn btn-primary">
+                    ✈ احجز رحلتك
+                </a>
+
+                <a href="#services" class="btn btn-outline">
+                    اكتشف خدماتنا
+                </a>
             </div>
+
             <div class="hero-stats">
-                <div class="stat"><strong>24/7</strong><span>خدمة العملاء</span></div>
-                <div class="stat"><strong>3–7</strong><span>نجوم الفنادق</span></div>
-                <div class="stat"><strong>🚢</strong><span>رحلات بحرية</span></div>
+                <div class="stat">
+                    <strong>24/7</strong>
+                    <span>خدمة العملاء</span>
+                </div>
+
+                <div class="stat">
+                    <strong>3–7</strong>
+                    <span>نجوم الفنادق</span>
+                </div>
+
+                <div class="stat">
+                    <strong>🚢</strong>
+                    <span>رحلات بحرية</span>
+                </div>
             </div>
+
         </div>
+
         <div class="hero-scene" id="heroScene">
+
             <div class="float float-1">
                 <div class="float-icon">🚢</div>
-                <div><strong>رحلات بحرية</strong><span>خدمة متاحة</span></div>
+                <div>
+                    <strong>رحلات بحرية</strong>
+                    <span>خدمة متاحة</span>
+                </div>
             </div>
+
             <div class="hero-3d-card" id="heroCard">
+
                 <div class="card-top">
-                    <img src="kimogfgf.jpg" class="ticket-logo" alt="شعار أنا السودان">
-                    <div class="ticket-title"><small>TRAVEL AGENCY</small><h3>أنا السودان</h3></div>
+
+                    <img
+                        src="kimogfgf.jpg"
+                        class="ticket-logo"
+                        alt="شعار أنا السودان"
+                    >
+
+                    <div class="ticket-title">
+                        <small>TRAVEL AGENCY</small>
+                        <h3>أنا السودان</h3>
+                    </div>
+
                 </div>
+
                 <div class="route">
-                    <div class="city"><strong>من</strong><span>ميناء الانطلاق</span></div>
+
+                    <div class="city">
+                        <strong>من</strong>
+                        <span>ميناء الانطلاق</span>
+                    </div>
+
                     <div class="route-line"></div>
-                    <div class="city"><strong>إلى</strong><span>ميناء الوصول</span></div>
+
+                    <div class="city">
+                        <strong>إلى</strong>
+                        <span>ميناء الوصول</span>
+                    </div>
+
                 </div>
+
                 <div class="ticket-info">
-                    <div><small>الرحلة</small><strong>رحلة بحرية</strong></div>
-                    <div><small>الخدمة</small><strong>باخرة</strong></div>
-                    <div><small>الحجز</small><strong>متاح</strong></div>
+
+                    <div>
+                        <small>الرحلة</small>
+                        <strong>رحلة بحرية</strong>
+                    </div>
+
+                    <div>
+                        <small>الخدمة</small>
+                        <strong>باخرة</strong>
+                    </div>
+
+                    <div>
+                        <small>الحجز</small>
+                        <strong>متاح</strong>
+                    </div>
+
                 </div>
+
             </div>
+
             <div class="float float-2">
                 <div class="float-icon">🏨</div>
-                <div><strong>فنادق فاخرة</strong><span>3 إلى 7 نجوم</span></div>
+                <div>
+                    <strong>فنادق فاخرة</strong>
+                    <span>3 إلى 7 نجوم</span>
+                </div>
             </div>
+
         </div>
+
     </div>
 </section>
 
+
 <div class="container search-area" id="booking">
+
     <div class="search-box">
+
         <div class="search-tabs">
-            <button class="search-tab active" data-type="flight">✈ تذاكر الطيران</button>
-            <button class="search-tab" data-type="ship">🚢 البواخر</button>
-            <button class="search-tab" data-type="hotel">🏨 الفنادق</button>
+
+            <button class="search-tab active" data-type="flight">
+                ✈ تذاكر الطيران
+            </button>
+
+            <button class="search-tab" data-type="ship">
+                🚢 البواخر
+            </button>
+
+            <button class="search-tab" data-type="hotel">
+                🏨 الفنادق
+            </button>
+
+            <button class="search-tab" data-type="other">
+                🧳 خدمة أخرى
+            </button>
+
+            <button class="search-tab" data-type="custom">
+                📦 طلب خاص
+            </button>
+
         </div>
+
         <form class="search-form" id="searchForm">
+
             <div class="field">
                 <label>من</label>
                 <select id="from">
                     <option value="">جاري التحميل...</option>
                 </select>
             </div>
+
             <div class="field">
                 <label>إلى</label>
                 <select id="to">
                     <option value="">جاري التحميل...</option>
                 </select>
             </div>
+
             <div class="field">
                 <label>تاريخ السفر</label>
                 <input type="date" id="travelDate">
             </div>
+
             <div class="field">
                 <label>المسافرون</label>
                 <select id="passengers">
@@ -444,304 +629,1023 @@ footer h4{font-size:13px;margin-bottom:15px;}
                     <option>5+ مسافرين</option>
                 </select>
             </div>
-            <button class="search-btn" type="submit">بحث</button>
+
+            <button class="search-btn" type="submit">
+                بحث
+            </button>
+
         </form>
+
     </div>
+
+    <div class="book-now-cta">
+
+        <button
+            class="btn btn-primary"
+            type="button"
+            onclick="openBooking('استفسار عام')"
+        >
+            📩 احجز الآن
+        </button>
+
+    </div>
+
 </div>
 
+
 <section id="services" class="services">
+
     <div class="container">
+
         <div class="section-head reveal">
+
             <span class="section-tag">خدماتنا</span>
+
             <h2>كل ما تحتاجه لرحلتك</h2>
-            <p>من التذكرة إلى الفندق... نحن معك في كل خطوة.</p>
+
+            <p>
+                من التذكرة إلى الفندق... نحن معك في كل خطوة.
+            </p>
+
         </div>
+
         <div class="services-grid" id="servicesGrid">
-            <div class="empty-state">جاري تحميل الخدمات...</div>
+            <div class="empty-state">
+                جاري تحميل الخدمات...
+            </div>
         </div>
+
     </div>
+
 </section>
+
 
 <section id="offers" class="offers">
+
     <div class="container">
+
         <div class="section-head reveal">
+
             <span class="section-tag">أحدث العروض</span>
+
             <h2>عروض محدّثة مباشرة من لوحة التحكم</h2>
-            <p>أي خدمة تضاف أو تعدَّل من لوحة Kimo تظهر هنا تلقائياً بدون تعديل الموقع.</p>
+
+            <p>
+                أي خدمة تضاف أو تعدَّل من لوحة Kimo تظهر هنا تلقائياً بدون تعديل الموقع.
+            </p>
+
         </div>
+
         <div class="offers-filters" id="offersFilters">
-            <button class="offer-filter active" data-filter="all">الكل</button>
-            <button class="offer-filter" data-filter="flight">✈️ الطيران</button>
-            <button class="offer-filter" data-filter="ferry">🚢 البواخر</button>
-            <button class="offer-filter" data-filter="hotel">🏨 الفنادق</button>
-            <button class="offer-filter" data-filter="security">🇪🇬 مصر</button>
-            <button class="offer-filter" data-filter="umrah">🕋 العمرة</button>
+
+            <button class="offer-filter active" data-filter="all">
+                الكل
+            </button>
+
+            <button class="offer-filter" data-filter="flight">
+                ✈️ الطيران
+            </button>
+
+            <button class="offer-filter" data-filter="ferry">
+                🚢 البواخر
+            </button>
+
+            <button class="offer-filter" data-filter="hotel">
+                🏨 الفنادق
+            </button>
+
+            <button class="offer-filter" data-filter="security">
+                🇪🇬 مصر
+            </button>
+
+            <button class="offer-filter" data-filter="umrah">
+                🕋 العمرة
+            </button>
+
         </div>
+
         <div class="offers-grid" id="offersGrid">
-            <div class="empty-state">جاري تحميل العروض...</div>
+
+            <div class="empty-state">
+                جاري تحميل العروض...
+            </div>
+
         </div>
+
     </div>
+
 </section>
+
 
 <section class="destinations" id="destinations">
+
     <div class="container">
+
         <div class="section-head reveal">
+
             <span class="section-tag">وجهاتنا</span>
+
             <h2>أين ستكون رحلتك القادمة؟</h2>
-            <p>اختر وجهتك ودع الباقي علينا.</p>
+
+            <p>
+                اختر وجهتك ودع الباقي علينا.
+            </p>
+
         </div>
+
         <div class="destination-grid">
-            <div class="destination reveal" onclick="openBooking('رحلة إلى جدة')">
+
+            <div
+                class="destination reveal"
+                onclick="openBooking('رحلة إلى جدة')"
+            >
+
                 <div class="destination-media">
-                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jeddah%20Corniche%2022.jpg?width=800" alt="جدة" loading="lazy">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Jeddah%20Corniche%2022.jpg?width=800"
+                        alt="جدة"
+                        loading="lazy"
+                    >
+
                 </div>
-                <div class="destination-flag">🇸🇦</div>
-                <div class="destination-content"><small>المملكة العربية السعودية</small><h3>جدة</h3><span>✈ طيران &nbsp; 🚢 باخرة</span></div>
+
+                <div class="destination-flag">
+                    🇸🇦
+                </div>
+
+                <div class="destination-content">
+                    <small>المملكة العربية السعودية</small>
+                    <h3>جدة</h3>
+                    <span>✈ طيران &nbsp; 🚢 باخرة</span>
+                </div>
+
             </div>
-            <div class="destination reveal" onclick="openBooking('رحلة عمرة')">
+
+
+            <div
+                class="destination reveal"
+                onclick="openBooking('رحلة عمرة')"
+            >
+
                 <div class="destination-media">
-                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Al-Kaaba%20in%20Mecca.jpg?width=800" alt="مكة" loading="lazy">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Al-Kaaba%20in%20Mecca.jpg?width=800"
+                        alt="مكة"
+                        loading="lazy"
+                    >
+
                 </div>
-                <div class="destination-flag">🕋</div>
-                <div class="destination-content"><small>المملكة العربية السعودية</small><h3>مكة</h3><span>🕋 برامج عمرة</span></div>
+
+                <div class="destination-flag">
+                    🕋
+                </div>
+
+                <div class="destination-content">
+                    <small>المملكة العربية السعودية</small>
+                    <h3>مكة</h3>
+                    <span>🕋 برامج عمرة</span>
+                </div>
+
             </div>
-            <div class="destination reveal" onclick="openBooking('رحلة إلى القاهرة')">
+
+
+            <div
+                class="destination reveal"
+                onclick="openBooking('رحلة إلى القاهرة')"
+            >
+
                 <div class="destination-media">
-                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/All%20Gizah%20Pyramids.jpg?width=800" alt="القاهرة" loading="lazy">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/All%20Gizah%20Pyramids.jpg?width=800"
+                        alt="القاهرة"
+                        loading="lazy"
+                    >
+
                 </div>
-                <div class="destination-flag">🇪🇬</div>
-                <div class="destination-content"><small>جمهورية مصر العربية</small><h3>القاهرة</h3><span>✈ طيران &nbsp; 📋 موافقة</span></div>
+
+                <div class="destination-flag">
+                    🇪🇬
+                </div>
+
+                <div class="destination-content">
+                    <small>جمهورية مصر العربية</small>
+                    <h3>القاهرة</h3>
+                    <span>✈ طيران &nbsp; 📋 موافقة</span>
+                </div>
+
             </div>
-            <div class="destination reveal" onclick="openBooking('زيارة المدينة')">
+
+
+            <div
+                class="destination reveal"
+                onclick="openBooking('زيارة المدينة')"
+            >
+
                 <div class="destination-media">
-                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Al%20Masjid%20An-Nabawi.jpg?width=800" alt="المدينة المنورة" loading="lazy">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Al%20Masjid%20An-Nabawi.jpg?width=800"
+                        alt="المدينة المنورة"
+                        loading="lazy"
+                    >
+
                 </div>
-                <div class="destination-flag">🕌</div>
-                <div class="destination-content"><small>المملكة العربية السعودية</small><h3>المدينة</h3><span>🕌 إقامة وزيارات</span></div>
+
+                <div class="destination-flag">
+                    🕌
+                </div>
+
+                <div class="destination-content">
+                    <small>المملكة العربية السعودية</small>
+                    <h3>المدينة</h3>
+                    <span>🕌 إقامة وزيارات</span>
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
+
 
 <section class="hotels" id="hotels">
+
     <div class="container">
+
         <div class="section-head reveal">
+
             <span class="section-tag">الفنادق</span>
+
             <h2>اختر مستوى إقامتك</h2>
-            <p>نوفر لك خيارات إقامة تناسب ميزانيتك واحتياجاتك.</p>
+
+            <p>
+                نوفر لك خيارات إقامة تناسب ميزانيتك واحتياجاتك.
+            </p>
+
         </div>
+
         <div class="hotel-grid" id="hotelsGrid">
-            <div class="empty-state">جاري تحميل الفنادق...</div>
+
+            <div class="empty-state">
+                جاري تحميل الفنادق...
+            </div>
+
         </div>
+
     </div>
+
 </section>
+
 
 <section class="why">
+
     <div class="container why-grid">
+
         <div class="why-scene reveal">
-            <div class="why-float one">✈️ سفر أسهل</div>
-            <div class="why-center"><img src="kimogfgf.jpg" alt="أنا السودان"></div>
-            <div class="why-float two">🏨 إقامة مريحة</div>
-        </div>
-        <div class="why-content reveal">
-            <span class="section-tag">لماذا أنا السودان؟</span>
-            <h2>نحن لا نحجز لك رحلة فقط... نحن نرتب تجربتك.</h2>
-            <p>نعمل على جعل إجراءات السفر أسهل وأكثر وضوحاً من لحظة اختيار الخدمة وحتى إتمام رحلتك.</p>
-            <div class="benefits">
-                <div class="benefit"><div class="check">✓</div><div><h4>خدمة شخصية</h4><p>نساعدك في اختيار الأنسب لرحلتك.</p></div></div>
-                <div class="benefit"><div class="check">✓</div><div><h4>خيارات متعددة</h4><p>طيران، بواخر، فنادق وعمرة.</p></div></div>
-                <div class="benefit"><div class="check">✓</div><div><h4>متابعة الإجراءات</h4><p>نوضح لك المطلوب قبل السفر.</p></div></div>
-                <div class="benefit"><div class="check">✓</div><div><h4>سهولة التواصل</h4><p>تواصل معنا مباشرة عبر الهاتف أو واتساب.</p></div></div>
+
+            <div class="why-float one">
+                ✈️ سفر أسهل
             </div>
+
+            <div class="why-center">
+                <img src="kimogfgf.jpg" alt="أنا السودان">
+            </div>
+
+            <div class="why-float two">
+                🏨 إقامة مريحة
+            </div>
+
         </div>
+
+
+        <div class="why-content reveal">
+
+            <span class="section-tag">
+                لماذا أنا السودان؟
+            </span>
+
+            <h2>
+                نحن لا نحجز لك رحلة فقط... نحن نرتب تجربتك.
+            </h2>
+
+            <p>
+                نعمل على جعل إجراءات السفر أسهل وأكثر وضوحاً من لحظة اختيار الخدمة وحتى إتمام رحلتك.
+            </p>
+
+            <div class="benefits">
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>خدمة شخصية</h4>
+                        <p>نساعدك في اختيار الأنسب لرحلتك.</p>
+                    </div>
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>خيارات متعددة</h4>
+                        <p>طيران، بواخر، فنادق وعمرة.</p>
+                    </div>
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>متابعة الإجراءات</h4>
+                        <p>نوضح لك المطلوب قبل السفر.</p>
+                    </div>
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    <div>
+                        <h4>سهولة التواصل</h4>
+                        <p>تواصل معنا مباشرة عبر الهاتف أو واتساب.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
+
 <section class="security">
+
     <div class="container">
+
         <div class="security-box reveal">
+
             <div class="security-content">
-                <span class="section-tag">خدمة السفر إلى مصر</span>
-                <h2>إجراءات السفر إلى مصر أصبحت أوضح.</h2>
-                <p>نساعدك في معرفة المتطلبات والإجراءات اللازمة لطلب الموافقة الأمنية قبل السفر.</p>
+
+                <span class="section-tag">
+                    خدمة السفر إلى مصر
+                </span>
+
+                <h2>
+                    إجراءات السفر إلى مصر أصبحت أوضح.
+                </h2>
+
+                <p>
+                    نساعدك في معرفة المتطلبات والإجراءات اللازمة لطلب الموافقة الأمنية قبل السفر.
+                </p>
+
                 <div class="security-list">
+
                     <div>✓ مراجعة البيانات والمستندات</div>
                     <div>✓ متابعة طلب الموافقة</div>
                     <div>✓ توضيح الإجراءات المطلوبة</div>
                     <div>✓ التواصل مع العميل أثناء المتابعة</div>
+
                 </div>
+
             </div>
+
             <div class="security-card">
-                <div class="passport"><div>🛂</div><strong>EGYPT</strong><span>TRAVEL SERVICE</span></div>
+
+                <div class="passport">
+                    <div>🛂</div>
+                    <strong>EGYPT</strong>
+                    <span>TRAVEL SERVICE</span>
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
+
 
 <section class="steps">
+
     <div class="container">
+
         <div class="section-head reveal">
-            <span class="section-tag">كيف تعمل الخدمة؟</span>
-            <h2>أربع خطوات لرحلتك</h2>
-            <p>تصميمنا لا يكتفي بالشكل الجميل؛ كل خطوة لها حركة وتفاعل حتى يشعر الزائر أن الموقع حي.</p>
+
+            <span class="section-tag">
+                كيف تعمل الخدمة؟
+            </span>
+
+            <h2>
+                أربع خطوات لرحلتك
+            </h2>
+
+            <p>
+                تصميمنا لا يكتفي بالشكل الجميل؛ كل خطوة لها حركة وتفاعل حتى يشعر الزائر أن الموقع حي.
+            </p>
+
         </div>
+
         <div class="steps-grid">
-            <div class="step reveal"><div class="step-number">01</div><h3>اختر الخدمة</h3><p>طيران، باخرة، فندق، عمرة أو موافقة مصر.</p></div>
-            <div class="step reveal"><div class="step-number">02</div><h3>أرسل الطلب</h3><p>أدخل معلوماتك وبيانات الرحلة.</p></div>
-            <div class="step reveal"><div class="step-number">03</div><h3>نراجع التفاصيل</h3><p>يتواصل معك فريق أنا السودان.</p></div>
-            <div class="step reveal"><div class="step-number">04</div><h3>استمتع برحلتك</h3><p>بعد إتمام الإجراءات تكون جاهزاً للسفر.</p></div>
+
+            <div class="step reveal">
+                <div class="step-number">01</div>
+                <h3>اختر الخدمة</h3>
+                <p>طيران، باخرة، فندق، عمرة أو موافقة مصر.</p>
+            </div>
+
+            <div class="step reveal">
+                <div class="step-number">02</div>
+                <h3>أرسل الطلب</h3>
+                <p>أدخل معلوماتك وبيانات الرحلة.</p>
+            </div>
+
+            <div class="step reveal">
+                <div class="step-number">03</div>
+                <h3>نراجع التفاصيل</h3>
+                <p>يتواصل معك فريق أنا السودان.</p>
+            </div>
+
+            <div class="step reveal">
+                <div class="step-number">04</div>
+                <h3>استمتع برحلتك</h3>
+                <p>بعد إتمام الإجراءات تكون جاهزاً للسفر.</p>
+            </div>
+
         </div>
+
     </div>
+
 </section>
 
+
 <section class="umrah" id="umrah">
+
     <div class="container umrah-grid">
+
         <div class="umrah-content reveal">
-            <span class="section-tag">خدمات العمرة</span>
-            <h2>رحلتك إلى <span>بيت الله</span> تبدأ معنا.</h2>
-            <p>نوفر لك المساعدة في ترتيب خدمات السفر والإقامة والتنسيق لرحلة العمرة.</p>
+
+            <span class="section-tag">
+                خدمات العمرة
+            </span>
+
+            <h2>
+                رحلتك إلى <span>بيت الله</span> تبدأ معنا.
+            </h2>
+
+            <p>
+                نوفر لك المساعدة في ترتيب خدمات السفر والإقامة والتنسيق لرحلة العمرة.
+            </p>
+
             <div class="umrah-items">
+
                 <div class="umrah-item">🕋 ترتيبات العمرة</div>
                 <div class="umrah-item">✈️ تذاكر السفر</div>
                 <div class="umrah-item">🏨 حجز الفنادق</div>
                 <div class="umrah-item">🚐 التنقلات</div>
                 <div class="umrah-item">📋 متابعة الإجراءات</div>
                 <div class="umrah-item">📞 خدمة العملاء</div>
+
             </div>
+
         </div>
+
+
         <div class="umrah-card reveal">
+
             <h3>اطلب برنامج العمرة</h3>
-            <p>أرسل بياناتك وسنتواصل معك عبر واتساب.</p>
+
+            <p>
+                أرسل بياناتك وسنتواصل معك عبر واتساب.
+            </p>
+
             <form class="form" id="umrahForm">
-                <input class="input" id="umrahName" placeholder="الاسم الكامل" required>
-                <input class="input" id="umrahPhone" type="tel" placeholder="رقم الهاتف" required>
+
+                <input
+                    class="input"
+                    id="umrahName"
+                    placeholder="الاسم الكامل"
+                    required
+                >
+
+                <input
+                    class="input"
+                    id="umrahPhone"
+                    type="tel"
+                    placeholder="رقم الهاتف"
+                    required
+                >
+
                 <select class="input" id="umrahPeople">
+
                     <option>عدد الأشخاص</option>
                     <option>شخص واحد</option>
                     <option>شخصان</option>
                     <option>3 أشخاص</option>
                     <option>4 أشخاص</option>
                     <option>5 أشخاص أو أكثر</option>
+
                 </select>
-                <textarea class="input" id="umrahMessage" placeholder="أي تفاصيل إضافية..."></textarea>
-                <button class="btn btn-primary" type="submit">إرسال الطلب عبر واتساب</button>
+
+                <textarea
+                    class="input"
+                    id="umrahMessage"
+                    placeholder="أي تفاصيل إضافية..."
+                ></textarea>
+
+                <button
+                    class="btn btn-primary"
+                    type="submit"
+                >
+                    إرسال الطلب عبر واتساب
+                </button>
+
             </form>
+
         </div>
+
     </div>
+
 </section>
+
 
 <section id="contact" class="contact">
+
     <div class="container">
+
         <div class="contact-info reveal">
+
             <h2>تواصل معنا</h2>
-            <p>عندك استفسار أو داير تحجز؟ فريق أنا السودان جاهز لمساعدتك.</p>
+
+            <p>
+                عندك استفسار أو داير تحجز؟ فريق أنا السودان جاهز لمساعدتك.
+            </p>
+
             <div class="contact-list">
-                <a href="tel:+249901373273" class="contact-item" aria-label="اتصال هاتفي على الرقم +249 90 137 3273">
-                    <div class="contact-icon tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L7.9 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.3z"/></svg></div>
-                    <div><strong>الهاتف</strong><span>+249 90 137 3273</span></div>
+
+                <a
+                    href="tel:+249901373273"
+                    class="contact-item"
+                    aria-label="اتصال هاتفي على الرقم +249 90 137 3273"
+                >
+
+                    <div class="contact-icon tel">
+
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L7.9 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.3z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>الهاتف</strong>
+                        <span>+249 90 137 3273</span>
+                    </div>
+
                 </a>
-                <a href="https://wa.me/249901373273" target="_blank" rel="noopener" class="contact-item" aria-label="التواصل عبر واتساب">
-                    <div class="contact-icon wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm4.7 13.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.2z"/></svg></div>
-                    <div><strong>واتساب</strong><span>+249 90 137 3273</span></div>
+
+
+                <a
+                    href="javascript:void(0)"
+                    onclick="openWhatsApp('السلام عليكم، أريد التواصل مع الدعم.')"
+                    class="contact-item"
+                    aria-label="التواصل عبر واتساب"
+                >
+
+                    <div class="contact-icon wa">
+
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+
+                            <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm4.7 13.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.2z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>واتساب</strong>
+                        <span>+249 90 137 3273</span>
+                    </div>
+
                 </a>
-                <a href="mailto:anaalsudan.travel17@gmail.com" class="contact-item" aria-label="إرسال بريد إلكتروني إلى anaalsudan.travel17@gmail.com">
-                    <div class="contact-icon mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></div>
-                    <div><strong>البريد</strong><span>anaalsudan.travel17@gmail.com</span></div>
+
+
+                <a
+                    href="mailto:anaalsudan.travel17@gmail.com"
+                    class="contact-item"
+                    aria-label="إرسال بريد إلكتروني إلى anaalsudan.travel17@gmail.com"
+                >
+
+                    <div class="contact-icon mail">
+
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+                            <path d="M3.5 7l8.5 6 8.5-6"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>البريد</strong>
+                        <span>anaalsudan.travel17@gmail.com</span>
+                    </div>
+
                 </a>
-                <a href="https://www.instagram.com/anaal_sudan" target="_blank" rel="noopener" class="contact-item" aria-label="فتح حساب أنا السودان على إنستغرام">
-                    <div class="contact-icon ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></div>
-                    <div><strong>انستقرام</strong><span>anaal_sudan</span></div>
+
+
+                <a
+                    href="https://www.instagram.com/anaal_sudan"
+                    target="_blank"
+                    rel="noopener"
+                    class="contact-item"
+                    aria-label="فتح حساب أنا السودان على إنستغرام"
+                >
+
+                    <div class="contact-icon ig">
+
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <rect x="3" y="3" width="18" height="18" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="17.3" cy="6.7" r="1.1"
+                                    fill="currentColor"
+                                    stroke="none"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>انستقرام</strong>
+                        <span>anaal_sudan</span>
+                    </div>
+
                 </a>
-                <a href="https://www.facebook.com/share/17sVTbE8S" target="_blank" rel="noopener" class="contact-item">
-                    <div class="contact-icon fb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h2.5V6H14c-2.2 0-4 1.8-4 4v1.5H8v3h2V21h3v-6.5h2.4l.6-3H13V10c0-.6.4-1 1-1z"/></svg></div>
-                    <div><strong>فيسبوك</strong><span>أنا السودان</span></div>
+
+
+                <a
+                    href="https://www.facebook.com/share/17sVTbE8S"
+                    target="_blank"
+                    rel="noopener"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon fb">
+
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+
+                            <path d="M14 9h2.5V6H14c-2.2 0-4 1.8-4 4v1.5H8v3h2V21h3v-6.5h2.4l.6-3H13V10c0-.6.4-1 1-1z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>فيسبوك</strong>
+                        <span>أنا السودان</span>
+                    </div>
+
                 </a>
-                <a href="https://tiktok.com/@user7335804619021" target="_blank" rel="noopener" class="contact-item">
-                    <div class="contact-icon tiktok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.88-1.4-2.07-1.4-3.32h-3.14v13.66c0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9c.3 0 .58.05.85.13V10.2c-.28-.04-.56-.06-.85-.06-3.29 0-5.96 2.67-5.96 5.96S6.87 22.06 10.16 22.06s5.96-2.67 5.96-5.96V9.01c1.24.89 2.76 1.41 4.4 1.41V7.28c-.85 0-1.66-.24-2.34-.66-.55-.34-1.03-.79-1.42-1.3-.02-.03-.04-.06-.06-.09z"/></svg></div>
-                    <div><strong>تيك توك</strong><span>anaal_sudan</span></div>
+
+
+                <a
+                    href="https://tiktok.com/@user7335804619021"
+                    target="_blank"
+                    rel="noopener"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon tiktok">
+
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+
+                            <path d="M16.6 5.82c-.9-.88-1.4-2.07-1.4-3.32h-3.14v13.66c0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9c.3 0 .58.05.85.13V10.2c-.28-.04-.56-.06-.85-.06-3.29 0-5.96 2.67-5.96 5.96S6.87 22.06 10.16 22.06s5.96-2.67 5.96-5.96V9.01c1.24.89 2.76 1.41 4.4 1.41V7.28c-.85 0-1.66-.24-2.34-.66-.55-.34-1.03-.79-1.42-1.3-.02-.03-.04-.06-.06-.09z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>تيك توك</strong>
+                        <span>anaal_sudan</span>
+                    </div>
+
                 </a>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
+
 <footer>
+
     <div class="container">
+
         <div class="footer-grid">
+
             <div class="footer-about">
+
                 <div class="footer-logo">
+
                     <img src="kimogfgf.jpg" alt="أنا السودان">
-                    <div><strong>أنا السودان</strong><span>وكالة سفر وسياحة</span></div>
+
+                    <div>
+                        <strong>أنا السودان</strong>
+                        <span>وكالة سفر وسياحة</span>
+                    </div>
+
                 </div>
-                <p>نسافر معك... لنصنع ذكرياتك. خدمات سفر وسياحة من السودان إلى مختلف الوجهات.</p>
+
+                <p>
+                    نسافر معك... لنصنع ذكرياتك.
+                    خدمات سفر وسياحة من السودان إلى مختلف الوجهات.
+                </p>
+
                 <div class="socials">
-                    <a href="https://www.facebook.com/share/17sVTbE8S" class="social fb" title="فيسبوك" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h2.5V6H14c-2.2 0-4 1.8-4 4v1.5H8v3h2V21h3v-6.5h2.4l.6-3H13V10c0-.6.4-1 1-1z"/></svg>
+
+                    <a
+                        href="https://www.facebook.com/share/17sVTbE8S"
+                        class="social fb"
+                        title="فيسبوك"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 9h2.5V6H14c-2.2 0-4 1.8-4 4v1.5H8v3h2V21h3v-6.5h2.4l.6-3H13V10c0-.6.4-1 1-1z"/>
+                        </svg>
+
                     </a>
-                    <a href="https://www.instagram.com/anaal_sudan?igsi=MW96aHpkMGpkdnpldw==" class="social ig" title="انستقرام" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+
+
+                    <a
+                        href="https://www.instagram.com/anaal_sudan?igsi=MW96aHpkMGpkdnpldw=="
+                        class="social ig"
+                        title="انستقرام"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <rect x="3" y="3" width="18" height="18" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="17.3" cy="6.7" r="1.1"
+                                    fill="currentColor"
+                                    stroke="none"/>
+
+                        </svg>
+
                     </a>
-                    <a href="https://wa.me/249901373273" class="social wa" title="واتساب" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm4.7 13.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.2z"/></svg>
+
+
+                    <a
+                        href="javascript:void(0)"
+                        onclick="openWhatsApp('السلام عليكم، أريد التواصل مع الدعم.')"
+                        class="social wa"
+                        title="واتساب"
+                    >
+
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+
+                            <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm4.7 13.4c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.2z"/>
+
+                        </svg>
+
                     </a>
-                    <a href="https://tiktok.com/@user7335804619021" class="social tiktok" title="تيك توك" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.88-1.4-2.07-1.4-3.32h-3.14v13.66c0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9c.3 0 .58.05.85.13V10.2c-.28-.04-.56-.06-.85-.06-3.29 0-5.96 2.67-5.96 5.96S6.87 22.06 10.16 22.06s5.96-2.67 5.96-5.96V9.01c1.24.89 2.76 1.41 4.4 1.41V7.28c-.85 0-1.66-.24-2.34-.66-.55-.34-1.03-.79-1.42-1.3-.02-.03-.04-.06-.06-.09z"/></svg>
+
+
+                    <a
+                        href="https://tiktok.com/@user7335804619021"
+                        class="social tiktok"
+                        title="تيك توك"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+
+                            <path d="M16.6 5.82c-.9-.88-1.4-2.07-1.4-3.32h-3.14v13.66c0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9c.3 0 .58.05.85.13V10.2c-.28-.04-.56-.06-.85-.06-3.29 0-5.96 2.67-5.96 5.96S6.87 22.06 10.16 22.06s5.96-2.67 5.96-5.96V9.01c1.24.89 2.76 1.41 4.4 1.41V7.28c-.85 0-1.66-.24-2.34-.66-.55-.34-1.03-.79-1.42-1.3-.02-.03-.04-.06-.06-.09z"/>
+
+                        </svg>
+
                     </a>
-                    <a href="mailto:anaalsudan.travel17@gmail.com" class="social mail" title="البريد الإلكتروني">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
-                    </a>
+
                 </div>
+
             </div>
+
+
             <div>
+
                 <h4>روابط سريعة</h4>
+
                 <ul class="footer-links">
+
                     <li><a href="#home">الرئيسية</a></li>
                     <li><a href="#services">خدماتنا</a></li>
                     <li><a href="#destinations">الوجهات</a></li>
                     <li><a href="#contact">تواصل معنا</a></li>
+
                 </ul>
+
             </div>
+
+
             <div>
+
                 <h4>الخدمات</h4>
+
                 <ul class="footer-links">
+
                     <li><a href="#booking">تذاكر الطيران</a></li>
                     <li><a href="#booking">البواخر</a></li>
                     <li><a href="#hotels">الفنادق</a></li>
                     <li><a href="#umrah">العمرة</a></li>
+
                 </ul>
+
             </div>
+
+
             <div>
+
                 <h4>تواصل معنا</h4>
+
                 <ul class="footer-links">
+
                     <li>+249 90 137 3273</li>
                     <li>anaalsudan.travel17@gmail.com</li>
                     <li>السودان</li>
+
                 </ul>
+
             </div>
+
         </div>
-        <div class="copyright">© 2026 أنا السودان للسفر والسياحة — جميع الحقوق محفوظة</div>
+
+
+        <div class="copyright">
+            © 2026 أنا السودان للسفر والسياحة — جميع الحقوق محفوظة
+        </div>
+
     </div>
+
 </footer>
 
-<a href="https://wa.me/249901373273" target="_blank" class="whatsapp" title="تواصل معنا عبر واتساب">💬</a>
 
-<div class="modal" id="modal">
+<a
+    href="javascript:void(0)"
+    onclick="openWhatsApp('السلام عليكم، أريد الاستفسار عن خدمات أنا السودان.')"
+    class="whatsapp"
+    title="تواصل معنا عبر واتساب"
+>
+    💬
+</a>
+
+
+<div class="modal" id="quickModal">
+
     <div class="modal-box">
-        <button class="close" onclick="closeBooking()">×</button>
-        <h3>طلب حجز</h3>
-        <p id="modalText">أرسل بياناتك وسنتواصل معك.</p>
-        <form class="form" id="bookingForm">
-            <input class="input" id="bookingName" placeholder="الاسم الكامل" required>
-            <input class="input" id="bookingPhone" type="tel" placeholder="رقم الهاتف" required>
-            <input class="input" id="bookingDate" type="date">
-            <input class="input" id="bookingPeople" type="number" min="1" value="1" placeholder="عدد الأشخاص">
-            <textarea class="input" id="bookingNotes" placeholder="ملاحظات إضافية..."></textarea>
-            <button class="btn btn-primary" type="submit">إرسال عبر واتساب</button>
+
+        <button class="close" onclick="closeQuickRequest()">
+            ×
+        </button>
+
+        <h3>
+            طلب خدمة أخرى
+        </h3>
+
+        <p>
+            اكتب اسمك وتفاصيل الخدمة التي تريدها، وسنستلم طلبك مباشرة عبر واتساب.
+        </p>
+
+        <form class="form" id="quickForm">
+
+            <input
+                class="input"
+                id="quickName"
+                placeholder="الاسم الكامل"
+                required
+            >
+
+            <textarea
+                class="input"
+                id="quickDetails"
+                placeholder="تفاصيل الخدمة المطلوبة..."
+                required
+            ></textarea>
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                إرسال عبر واتساب
+            </button>
+
         </form>
+
     </div>
+
 </div>
 
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeBooking()">
+            ×
+        </button>
+
+        <h3>
+            طلب حجز
+        </h3>
+
+        <p id="modalText">
+            أرسل بياناتك وسنتواصل معك.
+        </p>
+
+        <form class="form" id="bookingForm">
+
+            <input
+                class="input"
+                id="bookingName"
+                placeholder="الاسم الكامل"
+                required
+            >
+
+            <input
+                class="input"
+                id="bookingPhone"
+                type="tel"
+                placeholder="رقم الهاتف"
+                required
+            >
+
+            <input
+                class="input"
+                id="bookingDate"
+                type="date"
+            >
+
+            <input
+                class="input"
+                id="bookingPeople"
+                type="number"
+                min="1"
+                value="1"
+                placeholder="عدد الأشخاص"
+            >
+
+            <textarea
+                class="input"
+                id="bookingNotes"
+                placeholder="تفاصيل الخدمة المطلوبة..."
+            ></textarea>
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                إرسال عبر واتساب
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
 <div class="toast" id="toast"></div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -749,13 +1653,264 @@ footer h4{font-size:13px;margin-bottom:15px;}
 
 const WHATSAPP_NUMBER = "249901373273";
 
-const SUPABASE_URL = "https://ycmczqrtowffbpggqydk.supabase.co";
+const SUPABASE_URL =
+    "https://ycmczqrtowffbpggqydk.supabase.co";
 
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljbWN6cXJ0b3dmZmJwZ2dxeWRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg0NDQ4ODcsImV4cCI6MjEwNDAyMDg4N30.ff5AFoGdW00EBu9egvH_9eqJZes3HLSsqmuNBbf2azM";
+const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljbWN6cXJ0b3dmZmJwZ2dxeWRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg0NDQ4ODcsImV4cCI6MjEwNDAyMDg4N30.ff5AFoGdW00EBu9egvH_9eqJZes3HLSsqmuNBbf2azM";
+
+const REFERRAL_STORAGE_KEY = "travel_marketer_ref";
+
+let currentMarketer = null;
+let currentBookingService = "استفسار عام";
+
+
+function normalizeText(value){
+    return value == null ? "" : String(value).trim();
+}
+
+
+function getReferralCodeFromUrl(){
+
+    try{
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        return normalizeText(
+            params.get("r") ||
+            params.get("ref")
+        );
+
+    }catch(e){
+
+        return "";
+
+    }
+
+}
+
+
+function saveReferralCodeFromUrl(){
+
+    const code =
+        getReferralCodeFromUrl();
+
+    if(code){
+
+        localStorage.setItem(
+            REFERRAL_STORAGE_KEY,
+            code
+        );
+
+    }
+
+    return code;
+}
+
+
+function getSavedReferralCode(){
+
+    try{
+
+        return normalizeText(
+            localStorage.getItem(
+                REFERRAL_STORAGE_KEY
+            )
+        );
+
+    }catch(e){
+
+        return "";
+
+    }
+
+}
+
+
+function getMarketerMessagePart(){
+
+    if(!currentMarketer) return "";
+
+    return `\n\nبيانات المسوق:\nاسم المسوق: ${currentMarketer.name}\nرقم المسوق: ${currentMarketer.phone}\nكود المسوق: ${currentMarketer.code}`;
+
+}
+
+
+function updateReferralBadge(){
+
+    const badge =
+        document.getElementById("referralBadge");
+
+    const name =
+        document.getElementById("referralBadgeName");
+
+    if(!badge || !name) return;
+
+    if(currentMarketer){
+
+        name.textContent =
+            currentMarketer.name ||
+            currentMarketer.code;
+
+        badge.classList.add("show");
+
+    }else{
+
+        badge.classList.remove("show");
+
+    }
+
+}
+
+
+async function initMarketerReferral(){
+
+    saveReferralCodeFromUrl();
+
+    const code =
+        getSavedReferralCode();
+
+    if(!code || !supabaseClient){
+
+        updateReferralBadge();
+        return;
+
+    }
+
+    try{
+
+        const { data, error } =
+            await supabaseClient
+                .from("marketers")
+                .select("id,name,phone,code")
+                .eq("code", code)
+                .eq("is_active", true)
+                .maybeSingle();
+
+        if(error) throw error;
+
+        currentMarketer =
+            data || null;
+
+        updateReferralBadge();
+
+        if(currentMarketer){
+
+            showToast(
+                `مرحباً بك عبر المسوق: ${currentMarketer.name}`
+            );
+
+        }
+
+    }catch(e){
+
+        console.error(
+            "تعذر التحقق من كود المسوق",
+            e
+        );
+
+        currentMarketer = null;
+
+        updateReferralBadge();
+
+    }
+
+}
+
+
+function openWhatsApp(message){
+
+    const fullMessage =
+        `${message}${getMarketerMessagePart()}`;
+
+    window.open(
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(fullMessage)}`,
+        "_blank"
+    );
+
+}
+
+
+async function saveMarketingRequest(payload){
+
+    if(!supabaseClient || !currentMarketer) return;
+
+    try{
+
+        const { error } =
+            await supabaseClient
+                .from("marketing_requests")
+                .insert([{
+
+                    marketer_id:
+                        currentMarketer.id,
+
+                    marketer_name:
+                        currentMarketer.name,
+
+                    marketer_phone:
+                        currentMarketer.phone,
+
+                    marketer_code:
+                        currentMarketer.code,
+
+                    customer_name:
+                        normalizeText(
+                            payload.customer_name
+                        ),
+
+                    customer_phone:
+                        normalizeText(
+                            payload.customer_phone
+                        ),
+
+                    service:
+                        normalizeText(
+                            payload.service
+                        ) || "خدمة سفر",
+
+                    travel_date:
+                        payload.travel_date ||
+                        null,
+
+                    people:
+                        payload.people
+                            ? Number(payload.people) || 1
+                            : null,
+
+                    notes:
+                        normalizeText(
+                            payload.notes
+                        ),
+
+                    source:
+                        "website",
+
+                    status:
+                        "new"
+
+                }]);
+
+        if(error) throw error;
+
+    }catch(e){
+
+        console.error(
+            "تعذر حفظ طلب المسوق",
+            e
+        );
+
+    }
+
+}
+
 
 let supabaseClient = null;
 
+
 try{
+
     const hasValidSupabaseConfig =
         window.supabase &&
         typeof SUPABASE_URL === "string" &&
@@ -764,131 +1919,306 @@ try{
         SUPABASE_ANON_KEY.includes("YOUR-ANON-PUBLIC-KEY") === false;
 
     if(hasValidSupabaseConfig){
-        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_ANON_KEY
+            );
+
     }
+
 }catch(e){
-    console.error("تعذر تهيئة Supabase", e);
+
+    console.error(
+        "تعذر تهيئة Supabase",
+        e
+    );
+
 }
+
 
 window.addEventListener("load", function(){
+
     setTimeout(function(){
-        document.getElementById("loader").classList.add("hide");
+
+        document
+            .getElementById("loader")
+            .classList.add("hide");
+
     }, 700);
+
 });
 
-const header = document.getElementById("header");
+
+const header =
+    document.getElementById("header");
+
+
 window.addEventListener("scroll", function(){
-    if(window.scrollY > 40){ header.classList.add("scrolled"); }
-    else{ header.classList.remove("scrolled"); }
+
+    if(window.scrollY > 40){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
 });
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
 menuBtn.addEventListener("click", function(){
+
     navLinks.classList.toggle("show");
-    menuBtn.textContent = navLinks.classList.contains("show") ? "×" : "☰";
+
+    menuBtn.textContent =
+        navLinks.classList.contains("show")
+            ? "×"
+            : "☰";
+
 });
 
-document.querySelectorAll(".nav-links a").forEach(function(link){
-    link.addEventListener("click", function(){
-        navLinks.classList.remove("show");
-        menuBtn.textContent="☰";
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                navLinks.classList.remove("show");
+
+                menuBtn.textContent = "☰";
+
+            }
+        );
+
     });
-});
 
-const revealElements = document.querySelectorAll(".reveal");
-const observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
         }
-    });
-}, { threshold:.12 });
+    );
 
-revealElements.forEach(function(element){ observer.observe(element); });
 
-const heroScene = document.getElementById("heroScene");
-const heroCard = document.getElementById("heroCard");
+revealElements.forEach(
+    function(element){
+
+        observer.observe(element);
+
+    }
+);
+
+
+const heroScene =
+    document.getElementById("heroScene");
+
+const heroCard =
+    document.getElementById("heroCard");
+
 
 if(heroScene && heroCard){
-    heroScene.addEventListener("mousemove", function(e){
-        const rect = heroScene.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateY = ((x - centerX) / centerX) * 10;
-        const rotateX = ((centerY - y) / centerY) * 8;
-        heroCard.style.transform = `rotateY(${-10 + rotateY}deg) rotateX(${5 + rotateX}deg)`;
-    });
-    heroScene.addEventListener("mouseleave", function(){
-        heroCard.style.transform = `rotateY(-10deg) rotateX(5deg)`;
-    });
+
+    heroScene.addEventListener(
+        "mousemove",
+        function(e){
+
+            const rect =
+                heroScene.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+            const y =
+                e.clientY - rect.top;
+
+            const centerX =
+                rect.width / 2;
+
+            const centerY =
+                rect.height / 2;
+
+            const rotateY =
+                ((x - centerX) / centerX) * 10;
+
+            const rotateX =
+                ((centerY - y) / centerY) * 8;
+
+            heroCard.style.transform =
+                `rotateY(${-10 + rotateY}deg) rotateX(${5 + rotateX}deg)`;
+
+        }
+    );
+
+
+    heroScene.addEventListener(
+        "mouseleave",
+        function(){
+
+            heroCard.style.transform =
+                `rotateY(-10deg) rotateX(5deg)`;
+
+        }
+    );
+
 }
 
-const searchTabs = document.querySelectorAll(".search-tab");
-let currentSearchType = "flight";
+
+const searchTabs =
+    document.querySelectorAll(".search-tab");
+
+let currentSearchType =
+    "flight";
+
 
 function uniqueSortedLocations(values){
 
     const clean =
         values
-            .filter(function(v){ return v && String(v).trim() !== ""; })
-            .map(function(v){ return String(v).trim(); });
+            .filter(function(v){
 
-    return Array.from(new Set(clean))
-        .sort(function(a, b){ return a.localeCompare(b, "ar"); });
+                return v &&
+                    String(v).trim() !== "";
+
+            })
+            .map(function(v){
+
+                return String(v).trim();
+
+            });
+
+
+    return Array.from(
+        new Set(clean)
+    )
+    .sort(function(a,b){
+
+        return a.localeCompare(
+            b,
+            "ar"
+        );
+
+    });
 
 }
 
-function getLocationsForType(type, field){
+
+function getLocationsForType(
+    type,
+    field
+){
 
     return uniqueSortedLocations(
+
         allOffers
-            .filter(function(item){ return item.service_type === type; })
-            .map(function(item){ return item[field]; })
+            .filter(function(item){
+
+                return item.service_type === type;
+
+            })
+            .map(function(item){
+
+                return item[field];
+
+            })
+
     );
 
 }
 
-function fillLocationSelect(select, options, emptyLabel){
+
+function fillLocationSelect(
+    select,
+    options,
+    emptyLabel
+){
 
     if(!select) return;
 
     if(!options || options.length === 0){
+
         select.innerHTML =
             `<option value="">${escapeHtml(emptyLabel)}</option>`;
+
         return;
+
     }
 
     select.innerHTML =
         options
             .map(function(opt){
+
                 return `<option>${escapeHtml(opt)}</option>`;
+
             })
             .join("");
 
 }
 
+
 function updateSearchLocations(){
 
-    const from = document.getElementById("from");
-    const to = document.getElementById("to");
+    const from =
+        document.getElementById("from");
+
+    const to =
+        document.getElementById("to");
 
     if(!from || !to) return;
+
 
     if(currentSearchType === "ship"){
 
         fillLocationSelect(
             from,
-            getLocationsForType("ferry", "from_location"),
+            getLocationsForType(
+                "ferry",
+                "from_location"
+            ),
             "لا توجد وجهات بواخر متاحة"
         );
 
         fillLocationSelect(
             to,
-            getLocationsForType("ferry", "to_location"),
+            getLocationsForType(
+                "ferry",
+                "to_location"
+            ),
             "لا توجد وجهات بواخر متاحة"
         );
 
@@ -897,7 +2227,10 @@ function updateSearchLocations(){
     else if(currentSearchType === "hotel"){
 
         const hotelCities =
-            getLocationsForType("hotel", "hotel_location");
+            getLocationsForType(
+                "hotel",
+                "hotel_location"
+            );
 
         fillLocationSelect(
             from,
@@ -917,13 +2250,19 @@ function updateSearchLocations(){
 
         fillLocationSelect(
             from,
-            getLocationsForType("flight", "from_location"),
+            getLocationsForType(
+                "flight",
+                "from_location"
+            ),
             "لا توجد وجهات طيران متاحة"
         );
 
         fillLocationSelect(
             to,
-            getLocationsForType("flight", "to_location"),
+            getLocationsForType(
+                "flight",
+                "to_location"
+            ),
             "لا توجد وجهات طيران متاحة"
         );
 
@@ -931,326 +2270,1376 @@ function updateSearchLocations(){
 
 }
 
-searchTabs.forEach(function(tab){
-    tab.addEventListener("click", function(){
-        searchTabs.forEach(function(item){ item.classList.remove("active"); });
-        tab.classList.add("active");
-        currentSearchType = tab.dataset.type;
 
-        updateSearchLocations();
-    });
-});
+searchTabs.forEach(
+    function(tab){
 
-document.getElementById("searchForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    const from = document.getElementById("from").value;
-    const to = document.getElementById("to").value;
-    const date = document.getElementById("travelDate").value;
-    const passengers = document.getElementById("passengers").value;
+        tab.addEventListener(
+            "click",
+            function(){
 
-    let service = "تذكرة طيران";
-    if(currentSearchType==="ship"){ service = "تذكرة باخرة"; }
-    if(currentSearchType==="hotel"){ service = "حجز فندق"; }
+                if(tab.dataset.type === "other" || tab.dataset.type === "custom"){
 
-    const message =
-        `السلام عليكم، أريد الاستفسار عن ${service}%0A%0A` +
-        `من: ${from}%0A` +
-        `إلى: ${to}%0A` +
-        `التاريخ: ${date || "لم يحدد"}%0A` +
-        `المسافرون: ${passengers}`;
+                    openQuickRequest();
 
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
-});
+                    return;
 
-const modal = document.getElementById("modal");
-const modalText = document.getElementById("modalText");
+                }
+
+
+                searchTabs.forEach(
+                    function(item){
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+                tab.classList.add("active");
+
+                currentSearchType =
+                    tab.dataset.type;
+
+                updateSearchLocations();
+
+            }
+        );
+
+    }
+);
+
+
+document
+    .getElementById("searchForm")
+    .addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+            const from =
+                document.getElementById("from").value;
+
+            const to =
+                document.getElementById("to").value;
+
+            const date =
+                document.getElementById("travelDate").value;
+
+            const passengers =
+                document.getElementById("passengers").value;
+
+
+            let service =
+                "تذكرة طيران";
+
+            if(currentSearchType === "ship"){
+
+                service =
+                    "تذكرة باخرة";
+
+            }
+
+            if(currentSearchType === "hotel"){
+
+                service =
+                    "حجز فندق";
+
+            }
+
+
+            const message =
+                `السلام عليكم، أريد الاستفسار عن ${service}\n\n` +
+                `من: ${from || "لم يحدد"}\n` +
+                `إلى: ${to || "لم يحدد"}\n` +
+                `التاريخ: ${date || "لم يحدد"}\n` +
+                `المسافرون: ${passengers}`;
+
+
+            openWhatsApp(message);
+
+        }
+    );
+
+
+const modal =
+    document.getElementById("modal");
+
+const modalText =
+    document.getElementById("modalText");
+
+
+const quickModal =
+    document.getElementById("quickModal");
+
+
+function openQuickRequest(){
+
+    quickModal.classList.add("show");
+
+}
+
+
+function closeQuickRequest(){
+
+    quickModal.classList.remove("show");
+
+}
+
+
+if(quickModal){
+
+    quickModal.addEventListener(
+        "click",
+        function(e){
+
+            if(e.target === quickModal){
+
+                closeQuickRequest();
+
+            }
+
+        }
+    );
+
+}
+
+
+const quickForm =
+    document.getElementById("quickForm");
+
+
+if(quickForm){
+
+    quickForm.addEventListener(
+        "submit",
+        async function(e){
+
+            e.preventDefault();
+
+            const name =
+                normalizeText(
+                    document.getElementById(
+                        "quickName"
+                    ).value
+                );
+
+            const details =
+                normalizeText(
+                    document.getElementById(
+                        "quickDetails"
+                    ).value
+                );
+
+
+            const message =
+                `السلام عليكم، أنا ${name}\n\n` +
+                `تفاصيل الخدمة المطلوبة:\n${details}`;
+
+
+            await saveMarketingRequest({
+
+                customer_name:
+                    name,
+
+                customer_phone:
+                    "",
+
+                service:
+                    "طلب خدمة أخرى",
+
+                notes:
+                    details
+
+            });
+
+
+            openWhatsApp(message);
+
+
+            quickForm.reset();
+
+            closeQuickRequest();
+
+
+            showToast(
+                currentMarketer
+                    ? "تم إرسال طلبك مع بيانات المسوق."
+                    : "تم إرسال طلبك عبر واتساب."
+            );
+
+        }
+    );
+
+}
+
 
 function openBooking(service){
-    modalText.textContent = `طلب حجز: ${service}`;
+
+    currentBookingService =
+        normalizeText(service) ||
+        "استفسار عام";
+
+    modalText.textContent =
+        `طلب حجز: ${currentBookingService}`;
+
     modal.classList.add("show");
+
 }
+
 
 function closeBooking(){
+
     modal.classList.remove("show");
+
 }
 
-modal.addEventListener("click", function(e){
-    if(e.target === modal){ closeBooking(); }
-});
 
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    const name = document.getElementById("bookingName").value;
-    const phone = document.getElementById("bookingPhone").value;
-    const date = document.getElementById("bookingDate").value;
-    const people = document.getElementById("bookingPeople").value;
-    const notes = document.getElementById("bookingNotes").value;
-    const service = modalText.textContent;
+modal.addEventListener(
+    "click",
+    function(e){
 
-    const message =
-        `السلام عليكم، أريد ${service}%0A%0A` +
-        `الاسم: ${name}%0A` +
-        `الهاتف: ${phone}%0A` +
-        `التاريخ: ${date || "لم يحدد"}%0A` +
-        `عدد الأشخاص: ${people}%0A` +
-        `الملاحظات: ${notes || "لا توجد"}`;
+        if(e.target === modal){
 
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+            closeBooking();
 
-    document.getElementById("bookingForm").reset();
-    closeBooking();
-});
+        }
 
-document.getElementById("umrahForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    const name = document.getElementById("umrahName").value;
-    const phone = document.getElementById("umrahPhone").value;
-    const people = document.getElementById("umrahPeople").value;
-    const message = document.getElementById("umrahMessage").value;
+    }
+);
 
-    const text =
-        `السلام عليكم، أريد طلب برنامج عمرة.%0A%0A` +
-        `الاسم: ${name}%0A` +
-        `الهاتف: ${phone}%0A` +
-        `عدد الأشخاص: ${people}%0A` +
-        `التفاصيل: ${message || "لا توجد"}`;
 
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
+document
+    .getElementById("bookingForm")
+    .addEventListener(
+        "submit",
+        async function(e){
 
-    e.target.reset();
-});
+            e.preventDefault();
 
-const today = new Date().toISOString().split("T")[0];
-document.getElementById("travelDate").setAttribute("min", today);
-document.getElementById("bookingDate").setAttribute("min", today);
+            const name =
+                normalizeText(
+                    document.getElementById(
+                        "bookingName"
+                    ).value
+                );
 
-document.addEventListener("keydown", function(e){
-    if(e.key==="Escape"){ closeBooking(); }
-});
+            const phone =
+                normalizeText(
+                    document.getElementById(
+                        "bookingPhone"
+                    ).value
+                );
+
+            const date =
+                document.getElementById(
+                    "bookingDate"
+                ).value;
+
+            const people =
+                document.getElementById(
+                    "bookingPeople"
+                ).value;
+
+            const notes =
+                normalizeText(
+                    document.getElementById(
+                        "bookingNotes"
+                    ).value
+                );
+
+            const service =
+                currentBookingService ||
+                "استفسار عام";
+
+
+            const message =
+                `السلام عليكم، أريد ${service}\n\n` +
+                `الاسم: ${name}\n` +
+                `الهاتف: ${phone}\n` +
+                `التاريخ: ${date || "لم يحدد"}\n` +
+                `عدد الأشخاص: ${people}\n` +
+                `الملاحظات: ${notes || "لا توجد"}`;
+
+
+            await saveMarketingRequest({
+
+                customer_name:
+                    name,
+
+                customer_phone:
+                    phone,
+
+                service:
+                    service,
+
+                travel_date:
+                    date || null,
+
+                people:
+                    people,
+
+                notes:
+                    notes
+
+            });
+
+
+            openWhatsApp(message);
+
+
+            document
+                .getElementById("bookingForm")
+                .reset();
+
+            closeBooking();
+
+
+            showToast(
+                currentMarketer
+                    ? "تم إرسال الطلب مع حفظ بيانات المسوق."
+                    : "تم تجهيز طلبك وفتح واتساب."
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("umrahForm")
+    .addEventListener(
+        "submit",
+        async function(e){
+
+            e.preventDefault();
+
+            const name =
+                normalizeText(
+                    document.getElementById(
+                        "umrahName"
+                    ).value
+                );
+
+            const phone =
+                normalizeText(
+                    document.getElementById(
+                        "umrahPhone"
+                    ).value
+                );
+
+            const people =
+                document.getElementById(
+                    "umrahPeople"
+                ).value;
+
+            const details =
+                normalizeText(
+                    document.getElementById(
+                        "umrahMessage"
+                    ).value
+                );
+
+
+            const text =
+                `السلام عليكم، أريد طلب برنامج عمرة.\n\n` +
+                `الاسم: ${name}\n` +
+                `الهاتف: ${phone}\n` +
+                `عدد الأشخاص: ${people}\n` +
+                `التفاصيل: ${details || "لا توجد"}`;
+
+
+            await saveMarketingRequest({
+
+                customer_name:
+                    name,
+
+                customer_phone:
+                    phone,
+
+                service:
+                    "برنامج عمرة",
+
+                people:
+                    people,
+
+                notes:
+                    details
+
+            });
+
+
+            openWhatsApp(text);
+
+
+            e.target.reset();
+
+
+            showToast(
+                currentMarketer
+                    ? "تم إرسال طلب العمرة مع حفظ بيانات المسوق."
+                    : "تم تجهيز طلب العمرة وفتح واتساب."
+            );
+
+        }
+    );
+
+
+const today =
+    new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+document
+    .getElementById("travelDate")
+    .setAttribute(
+        "min",
+        today
+    );
+
+
+document
+    .getElementById("bookingDate")
+    .setAttribute(
+        "min",
+        today
+    );
+
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Escape"){
+
+            closeBooking();
+
+            closeQuickRequest();
+
+        }
+
+    }
+);
+
 
 function showToast(message){
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
     toast.classList.add("show");
-    setTimeout(function(){ toast.classList.remove("show"); }, 3000);
+
+    setTimeout(
+        function(){
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        3000
+    );
+
 }
+
 
 const SERVICE_TYPE_META = {
-    flight:   { label: "✈️ تذاكر الطيران", icon: "✈️" },
-    ferry:    { label: "🚢 البواخر",       icon: "🚢" },
-    hotel:    { label: "🏨 الفنادق",       icon: "🏨" },
-    security: { label: "🇪🇬 الموافقة الأمنية", icon: "🇪🇬" },
-    umrah:    { label: "🕋 العمرة",        icon: "🕋" },
+
+    flight:{
+        label:"✈️ تذاكر الطيران",
+        icon:"✈️"
+    },
+
+    ferry:{
+        label:"🚢 البواخر",
+        icon:"🚢"
+    },
+
+    hotel:{
+        label:"🏨 الفنادق",
+        icon:"🏨"
+    },
+
+    security:{
+        label:"🇪🇬 الموافقة الأمنية",
+        icon:"🇪🇬"
+    },
+
+    umrah:{
+        label:"🕋 العمرة",
+        icon:"🕋"
+    }
+
 };
 
+
 let allOffers = [];
-let currentOfferFilter = "all";
+
+let currentOfferFilter =
+    "all";
+
 
 function escapeHtml(value){
-    const div = document.createElement("div");
-    div.textContent = value == null ? "" : String(value);
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        value == null
+            ? ""
+            : String(value);
+
     return div.innerHTML;
+
 }
+
 
 function formatPrice(item){
-    if(item.price === null || item.price === undefined || item.price === 0){
+
+    if(
+        item.price === null ||
+        item.price === undefined ||
+        item.price === 0
+    ){
+
         return "اسأل عن السعر";
+
     }
-    const currency = item.currency || "SDG";
-    const number = Number(item.price).toLocaleString("ar-EG");
+
+    const currency =
+        item.currency || "SDG";
+
+    const number =
+        Number(item.price)
+            .toLocaleString("ar-EG");
+
     return `${number} ${currency}`;
+
 }
+
 
 function buildOfferTags(item){
-    const type = item.service_type;
+
+    const type =
+        item.service_type;
+
     const tags = [];
 
-    if((type === "flight" || type === "ferry") && item.from_location && item.to_location){
-        tags.push(`📍 ${item.from_location} → ${item.to_location}`);
+
+    if(
+        (type === "flight" ||
+         type === "ferry") &&
+        item.from_location &&
+        item.to_location
+    ){
+
+        tags.push(
+            `📍 ${item.from_location} → ${item.to_location}`
+        );
+
     }
+
 
     if(type === "hotel"){
-        if(item.hotel_stars){ tags.push(`⭐ ${item.hotel_stars} نجوم`); }
-        if(item.hotel_location){ tags.push(`📍 ${item.hotel_location}`); }
+
+        if(item.hotel_stars){
+
+            tags.push(
+                `⭐ ${item.hotel_stars} نجوم`
+            );
+
+        }
+
+        if(item.hotel_location){
+
+            tags.push(
+                `📍 ${item.hotel_location}`
+            );
+
+        }
+
     }
+
 
     if(type === "security"){
-        if(item.country){ tags.push(`🏳 ${item.country}`); }
-        if(item.processing_time){ tags.push(`⏱ ${item.processing_time}`); }
+
+        if(item.country){
+
+            tags.push(
+                `🏳 ${item.country}`
+            );
+
+        }
+
+        if(item.processing_time){
+
+            tags.push(
+                `⏱ ${item.processing_time}`
+            );
+
+        }
+
     }
+
 
     if(type === "umrah"){
-        if(item.package_type){ tags.push(`📦 ${item.package_type}`); }
-        if(item.package_days){ tags.push(`📅 ${item.package_days} يوم`); }
+
+        if(item.package_type){
+
+            tags.push(
+                `📦 ${item.package_type}`
+            );
+
+        }
+
+        if(item.package_days){
+
+            tags.push(
+                `📅 ${item.package_days} يوم`
+            );
+
+        }
+
     }
+
 
     return tags;
+
 }
+
 
 function buildOfferCard(item){
-    const type = item.service_type || "flight";
-    const meta = SERVICE_TYPE_META[type] || { label: "خدمة", icon: "🧭" };
-    const title = escapeHtml(item.title || "خدمة بدون اسم");
-    const subtitle = escapeHtml(item.subtitle || "");
-    const price = escapeHtml(formatPrice(item));
-    const image = item.image_url;
-    const tags = buildOfferTags(item);
 
-    const tagsHtml = tags.map(function(tag){
-        return `<span class="offer-tag">${escapeHtml(tag)}</span>`;
-    }).join("");
+    const type =
+        item.service_type ||
+        "flight";
 
-    const mediaHtml = image
-        ? `<img src="${escapeHtml(image)}" alt="${title}" loading="lazy">`
-        : `<span class="offer-media-icon">${meta.icon}</span>`;
+    const meta =
+        SERVICE_TYPE_META[type] ||
+        {
+            label:"خدمة",
+            icon:"🧭"
+        };
 
-    const bookMessage = `${title}`.replace(/'/g, "\\'");
+
+    const title =
+        escapeHtml(
+            item.title ||
+            "خدمة بدون اسم"
+        );
+
+    const subtitle =
+        escapeHtml(
+            item.subtitle ||
+            ""
+        );
+
+    const price =
+        escapeHtml(
+            formatPrice(item)
+        );
+
+    const image =
+        item.image_url;
+
+    const tags =
+        buildOfferTags(item);
+
+
+    const tagsHtml =
+        tags
+            .map(function(tag){
+
+                return `
+                    <span class="offer-tag">
+                        ${escapeHtml(tag)}
+                    </span>
+                `;
+
+            })
+            .join("");
+
+
+    const mediaHtml =
+        image
+
+            ? `
+                <img
+                    src="${escapeHtml(image)}"
+                    alt="${title}"
+                    loading="lazy"
+                >
+              `
+
+            : `
+                <span class="offer-media-icon">
+                    ${meta.icon}
+                </span>
+              `;
+
+
+    const bookMessage =
+        `${title}`
+            .replace(/'/g, "\\'");
+
 
     return `
-        <div class="offer-card reveal" data-type="${escapeHtml(type)}">
+
+        <div
+            class="offer-card reveal"
+            data-type="${escapeHtml(type)}"
+        >
+
             <div class="offer-media type-${escapeHtml(type)}">
-                <span class="offer-type-badge type-${escapeHtml(type)}">${escapeHtml(meta.label)}</span>
+
+                <span class="offer-type-badge type-${escapeHtml(type)}">
+                    ${escapeHtml(meta.label)}
+                </span>
+
                 ${mediaHtml}
+
             </div>
+
+
             <div class="offer-body">
+
                 <h3>${title}</h3>
-                ${subtitle ? `<p>${subtitle}</p>` : ""}
-                ${tags.length ? `<div class="offer-tags">${tagsHtml}</div>` : ""}
+
+                ${
+                    subtitle
+                        ? `<p>${subtitle}</p>`
+                        : ""
+                }
+
+
+                ${
+                    tags.length
+                        ? `
+                            <div class="offer-tags">
+                                ${tagsHtml}
+                            </div>
+                          `
+                        : ""
+                }
+
+
                 <div class="offer-bottom">
-                    <div class="offer-price">${price}</div>
-                    <button class="btn btn-primary" onclick="openBooking('${bookMessage}')">احجز</button>
+
+                    <div class="offer-price">
+                        ${price}
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="openBooking('${bookMessage}')"
+                    >
+                        طلب خدمة أخرى
+                    </button>
+
                 </div>
+
             </div>
+
         </div>
+
     `;
+
 }
+
 
 function observeNewReveals(container){
-    container.querySelectorAll(".reveal").forEach(function(el){ observer.observe(el); });
+
+    container
+        .querySelectorAll(".reveal")
+        .forEach(function(el){
+
+            observer.observe(el);
+
+        });
+
 }
+
+
+/*
+|--------------------------------------------------------------------------
+| زر الحجز عند عدم وجود عروض
+|--------------------------------------------------------------------------
+*/
+
+function buildEmptyBookingState(message, service){
+
+    const safeService =
+        String(service || "استفسار عام")
+            .replace(/\\/g, "\\\\")
+            .replace(/'/g, "\\'");
+
+    return `
+
+        <div class="empty-state">
+
+            <div class="empty-state-message">
+                ${escapeHtml(message)}
+            </div>
+
+            <button
+                class="btn btn-primary empty-book-btn"
+                type="button"
+                onclick="openBooking('${safeService}')"
+            >
+                📩 احجز الآن
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| كارت "خدمة مخصصة" الثابت — يظهر دايماً بعد العروض/الفنادق/الخدمات
+| المتاحة، وعند الضغط عليه يفتح نموذج الحجز ويُرسل الطلب للواتساب
+| مع بيانات المسوق تلقائياً (بنفس آلية openBooking + openWhatsApp).
+|--------------------------------------------------------------------------
+*/
+
+function buildCustomOfferCard(service){
+
+    const safeService =
+        String(service || "طلب خدمة مخصصة")
+            .replace(/\\/g, "\\\\")
+            .replace(/'/g, "\\'");
+
+    return `
+
+        <div class="offer-card reveal custom-offer-card">
+
+            <div class="offer-media type-custom">
+
+                <span class="offer-type-badge type-custom">
+                    ✨ خدمة مخصصة
+                </span>
+
+                <span class="offer-media-icon">
+                    ➕
+                </span>
+
+            </div>
+
+            <div class="offer-body">
+
+                <h3>لم تجد ما تبحث عنه؟</h3>
+
+                <p>
+                    أرسل بياناتك وتفاصيل طلبك وسنتواصل معك مباشرة عبر واتساب.
+                </p>
+
+                <div class="offer-bottom">
+
+                    <div class="offer-price">
+                        اطلب الآن
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        type="button"
+                        onclick="openBooking('${safeService}')"
+                    >
+                        📩 اطلب خدمتك
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+function buildCustomServiceCard(){
+
+    return `
+
+        <div class="service reveal custom-service-card">
+
+            <div class="service-icon">
+                ➕
+            </div>
+
+            <h3>خدمة أخرى؟</h3>
+
+            <p>أخبرنا بما تحتاجه وسنرتبه لك.</p>
+
+            <button
+                class="btn btn-primary service-action"
+                type="button"
+                onclick="openBooking('طلب خدمة مخصصة')"
+            >
+                📩 اطلب الآن
+            </button>
+
+        </div>
+
+    `;
+
+}
+
 
 function renderOffers(){
-    const grid = document.getElementById("offersGrid");
+
+    const grid =
+        document.getElementById(
+            "offersGrid"
+        );
+
     if(!grid) return;
 
-    const filtered = currentOfferFilter === "all"
-        ? allOffers
-        : allOffers.filter(function(item){ return item.service_type === currentOfferFilter; });
 
-    if(!filtered || filtered.length === 0){
-        grid.innerHTML = `<div class="empty-state">لا توجد عروض متاحة في هذا القسم حالياً.</div>`;
+    const filtered =
+        currentOfferFilter === "all"
+
+            ? allOffers
+
+            : allOffers.filter(
+                function(item){
+
+                    return item.service_type ===
+                        currentOfferFilter;
+
+                }
+            );
+
+
+    if(
+        !filtered ||
+        filtered.length === 0
+    ){
+
+        /*
+         * هنا تمت إضافة زر "احجز الآن"
+         * عندما يكون قسم العروض فارغاً.
+         */
+
+        const service =
+            currentOfferFilter === "hotel"
+                ? "حجز فندق"
+                : currentOfferFilter === "flight"
+                    ? "تذكرة طيران"
+                    : currentOfferFilter === "ferry"
+                        ? "تذكرة باخرة"
+                        : currentOfferFilter === "security"
+                            ? "خدمة السفر إلى مصر"
+                            : currentOfferFilter === "umrah"
+                                ? "برنامج عمرة"
+                                : "استفسار عام";
+
+
+        grid.innerHTML =
+            buildEmptyBookingState(
+                "لا توجد عروض متاحة في هذا القسم حالياً.",
+                service
+            );
+
         return;
+
     }
 
-    grid.innerHTML = filtered.map(buildOfferCard).join("");
+
+    const customService =
+        currentOfferFilter === "hotel"
+            ? "حجز فندق"
+            : currentOfferFilter === "flight"
+                ? "تذكرة طيران"
+                : currentOfferFilter === "ferry"
+                    ? "تذكرة باخرة"
+                    : currentOfferFilter === "security"
+                        ? "خدمة السفر إلى مصر"
+                        : currentOfferFilter === "umrah"
+                            ? "برنامج عمرة"
+                            : "طلب خدمة مخصصة";
+
+
+    grid.innerHTML =
+        filtered
+            .map(buildOfferCard)
+            .join("") +
+        buildCustomOfferCard(customService);
+
+
     observeNewReveals(grid);
+
 }
+
 
 function renderServices(){
-    const grid = document.getElementById("servicesGrid");
+
+    const grid =
+        document.getElementById(
+            "servicesGrid"
+        );
+
     if(!grid) return;
 
-    if(!allOffers || allOffers.length === 0){
-        grid.innerHTML = `<div class="empty-state">لا توجد خدمات متاحة حالياً.</div>`;
+
+    if(
+        !allOffers ||
+        allOffers.length === 0
+    ){
+
+        grid.innerHTML =
+            buildEmptyBookingState(
+                "لا توجد خدمات متاحة حالياً.",
+                "استفسار عام"
+            );
+
         return;
+
     }
 
-    grid.innerHTML = allOffers.map(function(item){
-        const type = item.service_type || "flight";
-        const meta = SERVICE_TYPE_META[type] || { icon: "🧭" };
-        const title = escapeHtml(item.title || "خدمة بدون اسم");
-        const subtitle = escapeHtml(item.subtitle || "");
 
-        return `
-            <div class="service reveal">
-                <div class="service-icon">${escapeHtml(meta.icon)}</div>
-                <h3>${title}</h3>
-                ${subtitle ? `<p>${subtitle}</p>` : ""}
-            </div>
-        `;
-    }).join("");
+    grid.innerHTML =
+        allOffers
+            .map(function(item){
+
+                const type =
+                    item.service_type ||
+                    "flight";
+
+                const meta =
+                    SERVICE_TYPE_META[type] ||
+                    {
+                        icon:"🧭"
+                    };
+
+                const title =
+                    escapeHtml(
+                        item.title ||
+                        "خدمة بدون اسم"
+                    );
+
+                const subtitle =
+                    escapeHtml(
+                        item.subtitle ||
+                        ""
+                    );
+
+
+                const requestLabel =
+                    "طلب خدمة أخرى";
+
+
+                const requestTitle =
+                    `${title}`
+                        .replace(
+                            /'/g,
+                            "\\'"
+                        );
+
+
+                return `
+
+                    <div class="service reveal">
+
+                        <div class="service-icon">
+                            ${escapeHtml(meta.icon)}
+                        </div>
+
+                        <h3>${title}</h3>
+
+                        ${
+                            subtitle
+                                ? `<p>${subtitle}</p>`
+                                : ""
+                        }
+
+                        <button
+                            class="btn btn-primary service-action"
+                            type="button"
+                            onclick="openBooking('${requestTitle}')"
+                        >
+                            ${requestLabel}
+                        </button>
+
+                    </div>
+
+                `;
+
+            })
+            .join("") +
+        buildCustomServiceCard();
+
 
     observeNewReveals(grid);
+
 }
+
 
 function renderHotels(items){
-    const grid = document.getElementById("hotelsGrid");
+
+    const grid =
+        document.getElementById(
+            "hotelsGrid"
+        );
+
     if(!grid) return;
 
-    if(!items || items.length === 0){
-        grid.innerHTML = `<div class="empty-state">لا توجد فنادق متاحة حالياً.</div>`;
+
+    if(
+        !items ||
+        items.length === 0
+    ){
+
+        /*
+         * هنا تمت إضافة زر "احجز الآن"
+         * عندما لا توجد فنادق.
+         */
+
+        grid.innerHTML =
+            buildEmptyBookingState(
+                "لا توجد فنادق متاحة حالياً.",
+                "حجز فندق"
+            );
+
         return;
+
     }
 
-    grid.innerHTML = items.map(buildOfferCard).join("");
+
+    grid.innerHTML =
+        items
+            .map(buildOfferCard)
+            .join("") +
+        buildCustomOfferCard("حجز فندق");
+
+
     observeNewReveals(grid);
+
 }
 
-const offersFilters = document.getElementById("offersFilters");
+
+const offersFilters =
+    document.getElementById(
+        "offersFilters"
+    );
+
 
 if(offersFilters){
-    offersFilters.querySelectorAll(".offer-filter").forEach(function(btn){
-        btn.addEventListener("click", function(){
-            offersFilters.querySelectorAll(".offer-filter").forEach(function(item){
-                item.classList.remove("active");
-            });
-            btn.classList.add("active");
-            currentOfferFilter = btn.dataset.filter;
-            renderOffers();
+
+    offersFilters
+        .querySelectorAll(".offer-filter")
+        .forEach(function(btn){
+
+            btn.addEventListener(
+                "click",
+                function(){
+
+                    offersFilters
+                        .querySelectorAll(".offer-filter")
+                        .forEach(function(item){
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                    btn.classList.add(
+                        "active"
+                    );
+
+
+                    currentOfferFilter =
+                        btn.dataset.filter;
+
+
+                    renderOffers();
+
+                }
+            );
+
         });
-    });
+
 }
 
+
 async function loadWebsiteServices(){
-    const offersGrid = document.getElementById("offersGrid");
+
+    const offersGrid =
+        document.getElementById(
+            "offersGrid"
+        );
+
 
     if(!supabaseClient){
+
         if(offersGrid){
+
             offersGrid.innerHTML =
-                `<div class="empty-state">
-                    لإظهار الخدمات هنا لازم تربط الموقع بمشروع Supabase
-                    (أضف SUPABASE_URL و SUPABASE_ANON_KEY في أعلى الكود).
-                </div>`;
+                `
+                    <div class="empty-state">
+
+                        <div class="empty-state-message">
+                            لإظهار الخدمات هنا لازم تربط الموقع بمشروع Supabase
+                            (أضف SUPABASE_URL و SUPABASE_ANON_KEY في أعلى الكود).
+                        </div>
+
+                        <button
+                            class="btn btn-primary empty-book-btn"
+                            type="button"
+                            onclick="openBooking('استفسار عام')"
+                        >
+                            📩 احجز الآن
+                        </button>
+
+                    </div>
+                `;
+
         }
+
         return;
+
     }
 
+
     try{
-        const { data, error } = await supabaseClient
-            .from("website_services")
-            .select("*")
-            .eq("is_active", true)
-            .order("sort_order", { ascending: true })
-            .order("created_at", { ascending: false });
+
+        const { data, error } =
+            await supabaseClient
+                .from("website_services")
+                .select("*")
+                .eq("is_active", true)
+                .order(
+                    "sort_order",
+                    {
+                        ascending:true
+                    }
+                )
+                .order(
+                    "created_at",
+                    {
+                        ascending:false
+                    }
+                );
+
 
         if(error) throw error;
 
-        allOffers = data || [];
+
+        allOffers =
+            data || [];
+
 
         renderServices();
+
         renderOffers();
 
-        renderHotels(allOffers.filter(function(item){ return item.service_type === "hotel"; }));
+
+        renderHotels(
+            allOffers.filter(
+                function(item){
+
+                    return item.service_type ===
+                        "hotel";
+
+                }
+            )
+        );
+
 
         updateSearchLocations();
+
 
     }catch(e){
-        console.error("تعذر تحميل الخدمات من Supabase", e);
+
+        console.error(
+            "تعذر تحميل الخدمات من Supabase",
+            e
+        );
+
 
         if(offersGrid){
-            offersGrid.innerHTML = `<div class="empty-state">تعذر تحميل العروض حالياً، حاول لاحقاً.</div>`;
+
+            offersGrid.innerHTML = `
+
+                <div class="empty-state">
+
+                    <div class="empty-state-message">
+                        تعذر تحميل العروض حالياً، حاول لاحقاً.
+                    </div>
+
+                    <button
+                        class="btn btn-primary empty-book-btn"
+                        type="button"
+                        onclick="openBooking('استفسار عام')"
+                    >
+                        📩 احجز الآن
+                    </button>
+
+                </div>
+
+            `;
+
         }
 
-        const servicesGrid = document.getElementById("servicesGrid");
+
+        const servicesGrid =
+            document.getElementById(
+                "servicesGrid"
+            );
+
+
         if(servicesGrid){
-            servicesGrid.innerHTML = `<div class="empty-state">تعذر تحميل الخدمات حالياً، حاول لاحقاً.</div>`;
+
+            servicesGrid.innerHTML = `
+
+                <div class="empty-state">
+
+                    <div class="empty-state-message">
+                        تعذر تحميل الخدمات حالياً، حاول لاحقاً.
+                    </div>
+
+                    <button
+                        class="btn btn-primary empty-book-btn"
+                        type="button"
+                        onclick="openBooking('استفسار عام')"
+                    >
+                        📩 احجز الآن
+                    </button>
+
+                </div>
+
+            `;
+
         }
+
 
         updateSearchLocations();
+
     }
+
 }
 
-document.addEventListener("DOMContentLoaded", loadWebsiteServices);
+
+document.addEventListener(
+    "DOMContentLoaded",
+    async function(){
+
+        await initMarketerReferral();
+
+        await loadWebsiteServices();
+
+    }
+);
 
 </script>
 
